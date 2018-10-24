@@ -1,0 +1,188 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "Car_2",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.7666666666666667,
+  "sample": 60,
+  "speed": 0.11,
+  "wrapMode": "2",
+  "curveData": {
+    "props": {
+      "position": [
+        {
+          "frame": 0,
+          "value": [
+            -240,
+            0
+          ],
+          "motionPath": [
+            [
+              -241,
+              -102,
+              -245,
+              -37,
+              -237,
+              -155
+            ]
+          ]
+        },
+        {
+          "frame": 0.08333333333333333,
+          "value": [
+            -237,
+            -159
+          ],
+          "motionPath": [
+            [
+              -4,
+              -351,
+              -236,
+              -325,
+              250,
+              -322
+            ]
+          ]
+        },
+        {
+          "frame": 0.3,
+          "value": [
+            234,
+            -154
+          ],
+          "motionPath": []
+        },
+        {
+          "frame": 0.38333333333333336,
+          "value": [
+            236,
+            0
+          ],
+          "motionPath": []
+        },
+        {
+          "frame": 0.4666666666666667,
+          "value": [
+            235,
+            185
+          ],
+          "motionPath": [
+            [
+              -17,
+              379,
+              245,
+              379,
+              -244,
+              355
+            ]
+          ]
+        },
+        {
+          "frame": 0.6833333333333333,
+          "value": [
+            -243,
+            185
+          ],
+          "motionPath": []
+        },
+        {
+          "frame": 0.7666666666666667,
+          "value": [
+            -240,
+            0
+          ],
+          "motionPath": []
+        }
+      ],
+      "rotation": [
+        {
+          "frame": 0.08333333333333333,
+          "value": 180
+        },
+        {
+          "frame": 0.3,
+          "value": 0
+        },
+        {
+          "frame": 0.4666666666666667,
+          "value": 0
+        },
+        {
+          "frame": 0.6833333333333333,
+          "value": -180
+        }
+      ],
+      "width": [
+        {
+          "frame": 0,
+          "value": 45
+        }
+      ],
+      "height": [
+        {
+          "frame": 0,
+          "value": 45
+        }
+      ]
+    },
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "ff3389ec-f7ee-4fe8-bea1-025b05c6a8dc"
+            }
+          }
+        ]
+      }
+    },
+    "paths": {
+      "New Node": {
+        "comps": {
+          "cc.Sprite": {}
+        },
+        "props": {
+          "opacity": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.36666666666666664,
+              "value": 0
+            },
+            {
+              "frame": 0.38333333333333336,
+              "value": 255
+            },
+            {
+              "frame": 0.4166666666666667,
+              "value": 0
+            },
+            {
+              "frame": 0.7666666666666667,
+              "value": 0
+            }
+          ],
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                53,
+                3
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": [
+    {
+      "frame": 0.38333333333333336,
+      "func": "cartwo",
+      "params": []
+    }
+  ]
+}
