@@ -41,6 +41,9 @@ cc.Class({
         }
         var otherSp = other.getComponent(cc.Sprite)
 
+        //创建父节点:容纳所有实例化的动画节点
+        var AnimeNodeCount=[]
+
         var scene, animNode//场景，实例化动画节点
         if (self.tag == 1) {//碰撞跑道上的节点
             for (let i = 0; i < carArr.length; i++) {
