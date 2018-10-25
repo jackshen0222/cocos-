@@ -1,12 +1,5 @@
 
 
-BUG:    ÎÞ·¨¹ºÂò³µÁ¾£¬lastArrayÅÐ¶ÏµÄÊÇ×îºóÒ»¸öÎ»ÖÃÎª¿Õ£¬¶ø²»ÊÇ³¡ÉÏÈÎÒâÎ»ÖÃÎª¿Õ£¬¸ü¸ÄÅÐ¶ÏÎª¿ÕµÄ·½·¨¼´¿É
-            //ÅÐ¶ÏÍæ¼Ò³ØÎª¿Õ ÇÒ½ð¶î×ã¹»
-            if (lastArray.active === false && window.coinTotalLabel >= b) {
-                
-
-×îºóÒ»¸öÎ»ÖÃ²»Îª¿ÕµÄ¹ºÂòÎÊÌâ£¬
-
 »ØÊÕÊýÖµÎÊÌâ
 
 ¶¯»­¼ÓËÙ
@@ -19,4 +12,4 @@ BUG:    ÎÞ·¨¹ºÂò³µÁ¾£¬lastArrayÅÐ¶ÏµÄÊÇ×îºóÒ»¸öÎ»ÖÃÎª¿Õ£¬¶ø²»ÊÇ³¡ÉÏÈÎÒâÎ»ÖÃÎª¿Õ£
 
 
 
-µ±Ç°Ê±¼ä:2018/10/24
+µ±Ç°Ê±¼ä:2018/10/25  16:42

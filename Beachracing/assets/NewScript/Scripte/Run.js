@@ -52,9 +52,9 @@ cc.Class({
                     
                 }
             }
-            AnimeNodeCount.addChild(animNode)
-            console.log(AnimeNodeCount)
-            
+            // AnimeNodeCount.addChild(animNode)
+            // console.log(AnimeNodeCount)
+
             this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
                 animNode.parent = scene//添加至场景
             }, 0.03)
