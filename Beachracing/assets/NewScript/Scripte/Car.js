@@ -249,7 +249,8 @@ cc.Class({
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
         }
-        lastArray = carArray[11] //数组长度为12个数
+        lastArray = carArray //数组长度为12个数,lastArray为最后一个空位
+        console.log(carArray)
 
         var carArrSprite = []//图片等级
         var chi = cc.find("Canvas/carSprite").children
@@ -257,30 +258,28 @@ cc.Class({
             carArrSprite.push(chi[i])
         }
         carArrSpriteV = carArrSprite
-
         var carPosition = []//车辆位置
         var chi = cc.find('Canvas/carPosition').children;
         for (let i = 0; i < chi.length; i++) {
             carPosition.push(chi[i]);
         }
 
-
         var self = this;
         var state = []
         //鼠标拖动车辆
         for (let i = 0; i < carArray.length; i++) {
-             //节点停放位置 
+            //节点停放位置 
             //触碰开始时获取当前节点位置
 
             carArray[i].on(cc.Node.EventType.TOUCH_START, function (event) {
-                if(state){
+                if (state) {
                     state.push("1");
-                }else{
-                    state=[];
+                } else {
+                    state = [];
                 }
 
-                if(state.length>1){
-                    return ;
+                if (state.length > 1) {
+                    return;
                 }
                 // if(event.getTouches().length>1){
                 //     return;
@@ -296,23 +295,23 @@ cc.Class({
 
             })
             // if (state.length == 1) {
-                carArray[i].on(cc.Node.EventType.TOUCH_MOVE, function (event) {
-                    // console.log("touche move",cc.__carTouch.length);
-                    // console.log("move",state)
-                    if(state.length>1){
-                        return ;
-                    }
-                    // if(event.getTouches().length>1){
-                    //     return;
-                    // }
-                    cc.director.getCollisionManager().enabled = false;
-                    // 获取当前光标与上一光标的偏移量
-                    var delta = event.touch.getDelta();
-                    this.x += delta.x;
-                    this.y += delta.y;
-                    //拖动结束后开启碰撞
+            carArray[i].on(cc.Node.EventType.TOUCH_MOVE, function (event) {
+                // console.log("touche move",cc.__carTouch.length);
+                // console.log("move",state)
+                if (state.length > 1) {
+                    return;
+                }
+                // if(event.getTouches().length>1){
+                //     return;
+                // }
+                cc.director.getCollisionManager().enabled = false;
+                // 获取当前光标与上一光标的偏移量
+                var delta = event.touch.getDelta();
+                this.x += delta.x;
+                this.y += delta.y;
+                //拖动结束后开启碰撞
 
-                })
+            })
             // }
             carArray[i].on(cc.Node.EventType.TOUCH_END, function () {
                 // console.log("end",cc.__carTouch.length);
@@ -337,24 +336,32 @@ cc.Class({
 
         };
 
+        var PositionNull
+        // carArray.forEach(v => {
+        //     if (v.active === false) {
+        //          PositionNull = true
+        //     }
+        //     else if (v.active === true) {
+        //          PositionNull = false
+        //     }
+        // });
+        // for (let i = 0; i < carArray.length; i++) {
+        //     if (carArray[i].active === false) {
+        //         PositionNull = true
+        //     } else if (carArray[i].active === true) {
+        //         PositionNull = false
+        //     }
+        // }
 
-        var coin1 = -1
-        var coin2 = -1
-        var coin3 = -1
-        var coin4 = -1
-        var coin5 = -1
-        var coin6 = -1
-        var coin7 = -1
-        var coin8 = -1
-        var coin9 = -1
         //button 购买车辆
         this.buy.node.on(cc.Node.EventType.TOUCH_END, () => {
             var b = this.lab1.string
+
             //判断玩家池为空 且金额足够
             if (lastArray.active === false && window.coinTotalLabel >= b) {
-                coin1 += 1//购买次数
-                window.coinTotalLabel -= Math.round(100 + 100 * (1.1 * coin1));//购买后的溢价
-                this.lab1.string = Math.round(100 + 100 * (1.1 * (coin1 + 1)))
+                window.coin1 += 1//购买次数
+                window.coinTotalLabel -= Math.round(100 + 100 * (1.1 * window.coin1));//购买后的溢价
+                this.lab1.string = Math.round(100 + 100 * (1.1 * (window.coin1 + 1)))
 
                 for (let i = 0; i < carArray.length; i++) {
                     if (carArray[i].active === false) {
@@ -366,6 +373,7 @@ cc.Class({
                     }
                 }
             }
+
         })
         this.buySp1.node.on(cc.Node.EventType.TOUCH_END, () => {
             var b1 = this.lab2.string
@@ -373,9 +381,9 @@ cc.Class({
             if (carArrSprite[3].active === true) {
 
                 if (lastArray.active === false && window.coinTotalLabel >= b1) {
-                    coin2 += 1;
-                    window.coinTotalLabel -= Math.round(500 + 500 * (1.15 * coin2))
-                    this.lab2.string = Math.round(500 + 500 * (1.5 * (coin2 + 1)))
+                    window.coin2 += 1;
+                    window.coinTotalLabel -= Math.round(500 + 500 * (1.15 * window.coin2))
+                    this.lab2.string = Math.round(500 + 500 * (1.5 * (window.coin2 + 1)))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -394,9 +402,9 @@ cc.Class({
             //第五辆车 解锁第三辆购买权(滚动试图中的第二辆)
             if (carArrSprite[4].active === true) {
                 if (lastArray.active === false && window.coinTotalLabel >= b2) {
-                    coin3 += 1;
-                    window.coinTotalLabel -= Math.round(1500 + 1500 * 1.2 * coin3);
-                    this.lab3.string = Math.round(1500 + 1500 * 1.2 * (coin3 + 1))
+                    window.coin3 += 1;
+                    window.coinTotalLabel -= Math.round(1500 + 1500 * 1.2 * window.coin3);
+                    this.lab3.string = Math.round(1500 + 1500 * 1.2 * (window.coin3 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -416,9 +424,9 @@ cc.Class({
             //解锁六级车辆  可以购买滚动窗口中第三辆车(第四种车辆)
             if (carArrSprite[5].active === true) {
                 if (lastArray.active === false && window.coinTotalLabel >= b3) {
-                    coin4 += 1;
-                    window.coinTotalLabel -= Math.round(3000 + 3000 * 1.25 * coin4);
-                    this.lab4.string = Math.round(3000 + 3000 * 1.25 * (coin4 + 1));
+                    window.coin4 += 1;
+                    window.coinTotalLabel -= Math.round(3000 + 3000 * 1.25 * window.coin4);
+                    this.lab4.string = Math.round(3000 + 3000 * 1.25 * (window.coin4 + 1));
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -437,9 +445,9 @@ cc.Class({
             //判断玩家池为空 且金额足够
             if (carArrSprite[6].active === true) {
                 if (lastArray.active === false && window.coinTotalLabel >= b4) {
-                    coin5 += 1;
-                    window.coinTotalLabel -= Math.round(5000 + 5000 * 1.3 * coin5);
-                    this.lab5.string = Math.round(5000 + 5000 * 1.3 * (coin5 + 1))
+                    window.coin5 += 1;
+                    window.coinTotalLabel -= Math.round(5000 + 5000 * 1.3 * window.coin5);
+                    this.lab5.string = Math.round(5000 + 5000 * 1.3 * (window.coin5 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -458,9 +466,9 @@ cc.Class({
             //判断玩家池为空 且金额足够
             if (carArrSprite[7].active === true) {
                 if (lastArray.active === false && window.coinTotalLabel >= b5) {
-                    coin6 += 1;
-                    window.coinTotalLabel -= Math.round(7500 + 7500 * 1.4 * coin6);
-                    this.lab6.string = Math.round(7500 + 7500 * 1.4 * (coin6 + 1))
+                    window.coin6 += 1;
+                    window.coinTotalLabel -= Math.round(7500 + 7500 * 1.4 * window.coin6);
+                    this.lab6.string = Math.round(7500 + 7500 * 1.4 * (window.coin6 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -479,9 +487,9 @@ cc.Class({
             //判断玩家池为空 且金额足够
             if (carArrSprite[8].active === true) {
                 if (lastArray.active === false && window.coinTotalLabel >= b6) {
-                    coin7 += 1;
-                    window.coinTotalLabel -= Math.round(12500 + 12500 * 1.5 * coin7);
-                    this.lab7.string = Math.round(12500 + 12500 * 1.5 * (coin7 + 1))
+                    window.coin7 += 1;
+                    window.coinTotalLabel -= Math.round(12500 + 12500 * 1.5 * window.coin7);
+                    this.lab7.string = Math.round(12500 + 12500 * 1.5 * (window.coin7 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -501,9 +509,9 @@ cc.Class({
             if (carArrSprite[9].active === true) {
                 buyNine++//购买八级赛车次数，8次时解锁九级购买权
                 if (lastArray.active === false && window.coinTotalLabel >= b7) {
-                    coin8 += 1;
-                    window.coinTotalLabel -= Math.round(17000 + 17000 * 1.6 * coin8);
-                    this.lab8.string = Math.round(17000 + 17000 * 1.6 * (coin8 + 1))
+                    window.coin8 += 1;
+                    window.coinTotalLabel -= Math.round(17000 + 17000 * 1.6 * window.coin8);
+                    this.lab8.string = Math.round(17000 + 17000 * 1.6 * (window.coin8 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -523,9 +531,9 @@ cc.Class({
             //够了八辆或以上八级车辆  即可购买九级车辆
             if (buyNine >= 8) {
                 if (lastArray.active === false && window.coinTotalLabel >= b8) {
-                    coin9 += 1;
-                    window.coinTotalLabel -= Math.round(25000 + 25000 * 1.8 * coin9);
-                    this.lab9.string = Math.round(25000 + 25000 * 1.8 * (coin9 + 1))
+                    window.coin9 += 1;
+                    window.coinTotalLabel -= Math.round(25000 + 25000 * 1.8 * window.coin9);
+                    this.lab9.string = Math.round(25000 + 25000 * 1.8 * (window.coin9 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {

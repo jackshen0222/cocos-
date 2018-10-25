@@ -5,6 +5,10 @@ BUG:    ÎÞ·¨¹ºÂò³µÁ¾£¬lastArrayÅÐ¶ÏµÄÊÇ×îºóÒ»¸öÎ»ÖÃÎª¿Õ£¬¶ø²»ÊÇ³¡ÉÏÈÎÒâÎ»ÖÃÎª¿Õ£
             if (lastArray.active === false && window.coinTotalLabel >= b) {
                 
 
+×îºóÒ»¸öÎ»ÖÃ²»Îª¿ÕµÄ¹ºÂòÎÊÌâ£¬
+
+»ØÊÕÊýÖµÎÊÌâ
+
 ¶¯»­¼ÓËÙ
 
 ±ä»»³µÁ¾Î»ÖÃ

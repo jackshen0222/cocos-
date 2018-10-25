@@ -26,6 +26,10 @@ cc.Class({
         // console.log(GameValueJs.CoinNumOfPurch.coin1)
     },
 
+    update(dt) {
+
+    },
+
     onCollisionExit: function (other, self) {
 
         var carArrSprite = []//图片等级
@@ -34,28 +38,26 @@ cc.Class({
             carArrSprite.push(chi[i])
         }
         var retrieveCarCoinGrade = [100, 500, 1500, 3000, 5000, 7500, 12500, 17000, 25000, 50000]
-        var self = this
 
         var selfSp = self.getComponent(cc.Sprite)
         var otherSp = other.getComponent(cc.Sprite)
 
         //碰撞 获取图片等级，图片等级对应图片回收金币
-        //回收值=金币*八折*购买次数(需要模块化获取)
+        //回收值=金币*八折*当前车辆购买次数(需要模块化获取或设置为全局变量)
         //总金币加上回收值,最后将原先回收的图片等级设置为初始值，并且图片为隐藏;
         if (self.node.group === 'retrieveCar') {
             for (let i = 0; i < carArrSprite.length; i++) {
                 if (otherSp.spriteFrame === carArrSprite[i].getComponent(cc.Sprite).spriteFrame) {
-                    console.log('spriteFrame load be done')
-                    window.coinTotalLabel += retrieveCarCoinGrade[i]
-                    this.coinCount.string = window.coinTotalLabel
+                    window.coinTotalLabel += (retrieveCarCoinGrade[i] * 0.8) //** (window.coin[i] + 1)
+                    this.coinCount.string = Math.round(window.coinTotalLabel)
                 }
                 otherSp.spriteFrame = carArrSprite[1].getComponent(cc.Sprite).spriteFrame
                 otherSp.node.active = false
             }
         }
 
-    }
+    },
 
 
-    // update (dt) {},
+
 });

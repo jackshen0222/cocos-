@@ -1158,12 +1158,12 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 49,
+      "width": 50,
       "height": 40
     },
     "_rotationX": 0,
     "_rotationY": 0,
-    "_scaleX": 1,
+    "_scaleX": 1.1,
     "_scaleY": 1,
     "_position": {
       "__type__": "cc.Vec2",
@@ -1193,7 +1193,7 @@
     "_N$file": null,
     "_isSystemFontUsed": true,
     "_spacingX": 0,
-    "_N$string": "0/10",
+    "_N$string": "起点",
     "_N$horizontalAlign": 1,
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
@@ -9177,10 +9177,7 @@
     "node": {
       "__id__": 238
     },
-    "_enabled": true,
-    "DragCar": {
-      "__id__": 28
-    }
+    "_enabled": true
   },
   {
     "__type__": "cc.Node",
@@ -9466,8 +9463,7 @@
     "node": {
       "__id__": 242
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -9690,8 +9686,7 @@
     "node": {
       "__id__": 251
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -9927,8 +9922,7 @@
     "node": {
       "__id__": 258
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.Node",
@@ -10124,8 +10118,7 @@
     "node": {
       "__id__": 265
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -10341,8 +10334,7 @@
     "node": {
       "__id__": 272
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -10558,8 +10550,7 @@
     "node": {
       "__id__": 279
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -10775,8 +10766,7 @@
     "node": {
       "__id__": 286
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -10992,8 +10982,7 @@
     "node": {
       "__id__": 293
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -11209,8 +11198,7 @@
     "node": {
       "__id__": 300
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
@@ -11426,8 +11414,7 @@
     "node": {
       "__id__": 307
     },
-    "_enabled": true,
-    "DragCar": null
+    "_enabled": true
   },
   {
     "__type__": "cc.BoxCollider",
