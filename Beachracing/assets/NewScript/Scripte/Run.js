@@ -13,10 +13,6 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        DragCar: {
-            default: null,
-            type: cc.Label
-        }
 
     },
 
@@ -24,8 +20,8 @@ cc.Class({
 
     onLoad: function () {
         cc.director.getCollisionManager().enabled = true
-        // this.DragCar.string ='123'
 
+        
 
     },
     onCollisionExit: function (other, self) {
@@ -42,7 +38,8 @@ cc.Class({
         var otherSp = other.getComponent(cc.Sprite)
 
         //创建父节点:容纳所有实例化的动画节点
-        var AnimeNodeCount=[]
+        var AnimeNodeCount = new cc.Node();
+        AnimeNodeCount.parent = this.AnimeNodeCount
 
         var scene, animNode//场景，实例化动画节点
         if (self.tag == 1) {//碰撞跑道上的节点
@@ -52,10 +49,12 @@ cc.Class({
                     scene = cc.director.getScene().getChildByName('Canvas');//获取场景
                     animNode = cc.instantiate(run[i])
                     // getComponent(cc.Animation).defaultClip.speed //动画加速
+                    
                 }
             }
-
-
+            AnimeNodeCount.addChild(animNode)
+            console.log(AnimeNodeCount)
+            
             this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
                 animNode.parent = scene//添加至场景
             }, 0.03)
@@ -70,15 +69,12 @@ cc.Class({
                     other.getComponent(cc.Collider).enabled = true;//开启碰撞
                     other.node.opacity = 255//全显示 不透明
                     anim.stop();//停止动画
-                    other.active = false//隐藏动画节点
+                    animNode.active = false//隐藏动画节点
                 }
             });
         }
         // this.doubleSpeedButton.node.on(cc.Node.EventType.TOUCH_END, function () {
-        //     carTotal.forEach(function (v) {
-        //         v.getComponent(cc.Animation).defaultClip.speed = 2
-        //     })
-        //     console.log(carTotal)
+
         // })
 
     },
