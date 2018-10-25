@@ -1,5 +1,10 @@
 
 
+BUG:    无法购买车辆，lastArray判断的是最后一个位置为空，而不是场上任意位置为空，更改判断为空的方法即可
+            //判断玩家池为空 且金额足够
+            if (lastArray.active === false && window.coinTotalLabel >= b) {
+                
+
 动画加速
 
 变换车辆位置
