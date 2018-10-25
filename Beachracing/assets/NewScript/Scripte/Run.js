@@ -70,7 +70,7 @@ cc.Class({
                     other.getComponent(cc.Collider).enabled = true;//开启碰撞
                     other.node.opacity = 255//全显示 不透明
                     anim.stop();//停止动画
-                    animNode.active = false//隐藏动画节点
+                    other.active = false//隐藏动画节点
                 }
             });
         }
