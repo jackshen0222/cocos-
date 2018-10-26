@@ -60,71 +60,30 @@ cc.Class({
         var selfSp = self.getComponent(cc.Sprite)
         //碰撞其他车辆
         if (other.node.group === 'CarCollider' && self.node.group === 'CarCollider') {
-            if (selfSp.spriteFrame === otherSp.spriteFrame) {
+            if (selfSp.spriteFrame === otherSp.spriteFrame) {//车辆合成
                 for (let i = 0; i < carArr.length; i++) {
                     if (selfSp.spriteFrame === carArr[i].getComponent(cc.Sprite).spriteFrame) {
-                        if (carArr[i] === carArr[9]) {
+                        if (carArr[i] === carArr[9]) {//最高等级时不能合成
                             return;
                         }
                         otherSp.spriteFrame = carArr[i + 1].getComponent(cc.Sprite).spriteFrame;
-                        carArr[i].active = true//当前等级图片显示
+                        carArr[i].active = true//当前等级图片显示,购买栏里黑色的图片
                         carArr[i + 1].active = true//下一等级图片显示
                     }
                 }
-                self.node.active = false;
+                self.node.active = false;//被碰的隐藏,other-拖动的不隐藏
             }
         };
+        if (other.node.group === 'CarCollider' && self.node.group === 'carPosition') {
+            if (self.node.active === true) {
+                console.log('node already active')
+                return;
+            }
+            else{
+                otherSp.spriteFrame=selfSp.spriteFrame
 
-
-        // var selff = this
-        // if (other.node.group === 'carPosition') {
-        //     if(array[other.tag-1].active ===false){
-        //         other.active=false
-        //         // var spri=self.getComponent(cc.Sprite).spriteFrame
-        //         // self.spriteFrame=carArr[0].getComponent(cc.Sprite).spriteFrame
-        //         // array[other.tag-1].spriteFrame=spri
-        //         array[other.tag-1].active=true;
-        //     }
-        // }
-
-
-
-        // if (other.tag === 1) {
-        //     position = 1
-        // }
-        // else if (other.tag === 2) {
-        //     position = 2
-        // }
-        // else if (other.tag === 3) {
-        //     position = 3
-        // }
-        // else if (other.tag === 4) {
-        //     position = 4
-        // }
-        // else if (other.tag === 5) {
-        //     position = 5
-        // }
-        // else if (other.tag === 6) {
-        //     position = 6
-        // }
-        // else if (other.tag === 7) {
-        //     position = 7
-        // }
-        // else if (other.tag === 8) {
-        //     position = 8
-        // }
-        // else if (other.tag === 9) {
-        //     position = 9
-        // }
-        // else if (other.tag === 10) {
-        //     position = 10
-        // }
-        // else if (other.tag === 11) {
-        //     position = 11
-        // }
-        // else if (other.tag === 12) {
-        //     position = 12
-        // }
+            }
+        }
     },
 
 

@@ -45,12 +45,13 @@ cc.Class({
         //碰撞 获取图片等级，图片等级对应图片回收金币
         //回收值=金币*八折*当前车辆购买次数(需要模块化获取或设置为全局变量)
         //总金币加上回收值,最后将原先回收的图片等级设置为初始值，并且图片为隐藏;
+        //策划说回收不给钱，下面的if我给注释掉了
         if (self.node.group === 'retrieveCar') {
             for (let i = 0; i < carArrSprite.length; i++) {
-                if (otherSp.spriteFrame === carArrSprite[i].getComponent(cc.Sprite).spriteFrame) {
-                    window.coinTotalLabel += (retrieveCarCoinGrade[i] * 0.8) //** (window.coin[i] + 1)
-                    this.coinCount.string = Math.round(window.coinTotalLabel)
-                }
+                // if (otherSp.spriteFrame === carArrSprite[i].getComponent(cc.Sprite).spriteFrame) {
+                    // window.coinTotalLabel += (retrieveCarCoinGrade[i] * 0.8) //** (window.coin[i] + 1)
+                    // this.coinCount.string = Math.round(window.coinTotalLabel)
+                // }
                 otherSp.spriteFrame = carArrSprite[1].getComponent(cc.Sprite).spriteFrame
                 otherSp.node.active = false
             }

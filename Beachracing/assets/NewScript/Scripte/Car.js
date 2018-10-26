@@ -163,7 +163,6 @@ cc.Class({
         this.coinTotal.string = Math.round(window.coinTotalLabel)//取整
         this.coinSecond.string = Math.round(window.coinSecondLabel);
 
-
         this.ViewEffectUpdate();//图片复原
 
     },
@@ -244,13 +243,10 @@ cc.Class({
     buyCar: function () {
 
         var carArray = []; //添加子节点到新数组
-        var lastArray;
         var chi = cc.find('Canvas/car').children;
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
         }
-        lastArray = carArray[11] //数组长度为12个数,lastArray为最后一个空位
-
         var carArrSprite = []//图片等级
         var chi = cc.find("Canvas/carSprite").children
         for (let i = 0; i < chi.length; i++) {
@@ -335,24 +331,17 @@ cc.Class({
 
         };
 
-        var PositionNull
-        // carArray.forEach(v => {
-        //     if (v.active === false) {
-        //          PositionNull = true
-        //     }
-        //     else if (v.active === true) {
-        //          PositionNull = false
-        //     }
-        // });
-        // for (let i = 0; i < carArray.length; i++) {
-        //     if (carArray[i].active === false) {
-        //         PositionNull = true
-        //     } else if (carArray[i].active === true) {
-        //         PositionNull = false
-        //     }
-        // }
 
-
+        //记录当前第几次购买车辆
+        var coin1 = -1
+        var coin2 = -1
+        var coin3 = -1
+        var coin4 = -1
+        var coin5 = -1
+        var coin6 = -1
+        var coin7 = -1
+        var coin8 = -1
+        var coin9 = -1
         //button 购买车辆
         this.buy.node.on(cc.Node.EventType.TOUCH_END, () => {
             var b = this.lab1.string
@@ -364,9 +353,9 @@ cc.Class({
             }
             //判断玩家池为空 且金额足够
             if (buyOrOff && window.coinTotalLabel >= b) {
-                window.coin1 += 1//购买次数
-                window.coinTotalLabel -= Math.round(100 + 100 * (1.1 * window.coin1));//购买后的溢价
-                this.lab1.string = Math.round(100 + 100 * (1.1 * (window.coin1 + 1)))
+                coin1 += 1//购买次数
+                window.coinTotalLabel -= Math.round(100 + 100 * (1.1 * coin1));//购买后的溢价
+                this.lab1.string = Math.round(100 + 100 * (1.1 * (coin1 + 1)))
 
                 for (let i = 0; i < carArray.length; i++) {
                     if (carArray[i].active === false) {
@@ -392,9 +381,9 @@ cc.Class({
             if (carArrSprite[3].active === true) {
 
                 if (buyOrOff && window.coinTotalLabel >= b1) {
-                    window.coin2 += 1;
-                    window.coinTotalLabel -= Math.round(500 + 500 * (1.15 * window.coin2))
-                    this.lab2.string = Math.round(500 + 500 * (1.5 * (window.coin2 + 1)))
+                    coin2 += 1;
+                    window.coinTotalLabel -= Math.round(500 + 500 * (1.15 * coin2))
+                    this.lab2.string = Math.round(500 + 500 * (1.5 * (coin2 + 1)))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -418,10 +407,10 @@ cc.Class({
             }
             //第五辆车 解锁第三辆购买权(滚动试图中的第二辆)
             if (carArrSprite[4].active === true) {
-                if (buyOrOff&& window.coinTotalLabel >= b2) {
-                    window.coin3 += 1;
-                    window.coinTotalLabel -= Math.round(1500 + 1500 * 1.2 * window.coin3);
-                    this.lab3.string = Math.round(1500 + 1500 * 1.2 * (window.coin3 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b2) {
+                    coin3 += 1;
+                    window.coinTotalLabel -= Math.round(1500 + 1500 * 1.2 * coin3);
+                    this.lab3.string = Math.round(1500 + 1500 * 1.2 * (coin3 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -446,10 +435,10 @@ cc.Class({
             //判断玩家池为空 且金额足够
             //解锁六级车辆  可以购买滚动窗口中第三辆车(第四种车辆)
             if (carArrSprite[5].active === true) {
-                if (buyOrOff&& window.coinTotalLabel >= b3) {
-                    window.coin4 += 1;
-                    window.coinTotalLabel -= Math.round(3000 + 3000 * 1.25 * window.coin4);
-                    this.lab4.string = Math.round(3000 + 3000 * 1.25 * (window.coin4 + 1));
+                if (buyOrOff && window.coinTotalLabel >= b3) {
+                    coin4 += 1;
+                    window.coinTotalLabel -= Math.round(3000 + 3000 * 1.25 * coin4);
+                    this.lab4.string = Math.round(3000 + 3000 * 1.25 * (coin4 + 1));
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -473,10 +462,10 @@ cc.Class({
             }
             //判断玩家池为空 且金额足够
             if (carArrSprite[6].active === true) {
-                if (buyOrOff&& window.coinTotalLabel >= b4) {
-                    window.coin5 += 1;
-                    window.coinTotalLabel -= Math.round(5000 + 5000 * 1.3 * window.coin5);
-                    this.lab5.string = Math.round(5000 + 5000 * 1.3 * (window.coin5 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b4) {
+                    coin5 += 1;
+                    window.coinTotalLabel -= Math.round(5000 + 5000 * 1.3 * coin5);
+                    this.lab5.string = Math.round(5000 + 5000 * 1.3 * (coin5 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -500,10 +489,10 @@ cc.Class({
             }
             //判断玩家池为空 且金额足够
             if (carArrSprite[7].active === true) {
-                if (buyOrOff&& window.coinTotalLabel >= b5) {
-                    window.coin6 += 1;
-                    window.coinTotalLabel -= Math.round(7500 + 7500 * 1.4 * window.coin6);
-                    this.lab6.string = Math.round(7500 + 7500 * 1.4 * (window.coin6 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b5) {
+                    coin6 += 1;
+                    window.coinTotalLabel -= Math.round(7500 + 7500 * 1.4 * coin6);
+                    this.lab6.string = Math.round(7500 + 7500 * 1.4 * (coin6 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -527,10 +516,10 @@ cc.Class({
             }
             //判断玩家池为空 且金额足够
             if (carArrSprite[8].active === true) {
-                if (buyOrOff&& window.coinTotalLabel >= b6) {
-                    window.coin7 += 1;
-                    window.coinTotalLabel -= Math.round(12500 + 12500 * 1.5 * window.coin7);
-                    this.lab7.string = Math.round(12500 + 12500 * 1.5 * (window.coin7 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b6) {
+                    coin7 += 1;
+                    window.coinTotalLabel -= Math.round(12500 + 12500 * 1.5 * coin7);
+                    this.lab7.string = Math.round(12500 + 12500 * 1.5 * (coin7 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -555,10 +544,10 @@ cc.Class({
             //判断玩家池为空 且金额足够
             if (carArrSprite[9].active === true) {
                 buyNine++//购买八级赛车次数，8次时解锁九级购买权
-                if (buyOrOff&& window.coinTotalLabel >= b7) {
-                    window.coin8 += 1;
-                    window.coinTotalLabel -= Math.round(17000 + 17000 * 1.6 * window.coin8);
-                    this.lab8.string = Math.round(17000 + 17000 * 1.6 * (window.coin8 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b7) {
+                    coin8 += 1;
+                    window.coinTotalLabel -= Math.round(17000 + 17000 * 1.6 * coin8);
+                    this.lab8.string = Math.round(17000 + 17000 * 1.6 * (coin8 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
@@ -574,7 +563,7 @@ cc.Class({
         })
         this.buySp8.node.on(cc.Node.EventType.TOUCH_END, () => {
             var b8 = this.lab9.string
-            var buyOrOff = false
+            var buyOrOff = false;
             for (let i = 0; i < carArray.length; i++) {
                 if (carArray[i].active === false) {
                     buyOrOff = true
@@ -583,10 +572,10 @@ cc.Class({
             //判断玩家池为空 且金额足够
             //够了八辆或以上八级车辆  即可购买九级车辆
             if (buyNine >= 8) {
-                if (buyOrOff&& window.coinTotalLabel >= b8) {
-                    window.coin9 += 1;
-                    window.coinTotalLabel -= Math.round(25000 + 25000 * 1.8 * window.coin9);
-                    this.lab9.string = Math.round(25000 + 25000 * 1.8 * (window.coin9 + 1))
+                if (buyOrOff && window.coinTotalLabel >= b8) {
+                    coin9 += 1;
+                    window.coinTotalLabel -= Math.round(25000 + 25000 * 1.8 * coin9);
+                    this.lab9.string = Math.round(25000 + 25000 * 1.8 * (coin9 + 1))
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
