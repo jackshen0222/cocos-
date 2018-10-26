@@ -272,22 +272,10 @@ cc.Class({
                 } else {
                     state = [];
                 }
-
                 if (state.length > 1) {
                     return;
                 }
-                // if(event.getTouches().length>1){
-                //     return;
-                // }
-                // console.log("start",state)
-                // console.log("touches",cc.__carTouch);
-                // var id = cc.Touch.name
-                // state.push(id)
-                // console.log(state.length)
-                // if(state.length==1){ 
                 carArray[i]._sourcePos = carPosition[i].position
-                // }
-
             })
             // if (state.length == 1) {
             carArray[i].on(cc.Node.EventType.TOUCH_MOVE, function (event) {
@@ -296,34 +284,31 @@ cc.Class({
                 if (state.length > 1) {
                     return;
                 }
-                // if(event.getTouches().length>1){
-                //     return;
-                // }
                 cc.director.getCollisionManager().enabled = false;
                 // 获取当前光标与上一光标的偏移量
                 var delta = event.touch.getDelta();
                 this.x += delta.x;
                 this.y += delta.y;
-                //拖动结束后开启碰撞
 
             })
-            // }
             carArray[i].on(cc.Node.EventType.TOUCH_END, function () {
-                // console.log("end",cc.__carTouch.length);
 
-                // cc.__carTouch&&cc.__carTouch.pop();
-                // console.log("end",state)
                 state.pop();
-                cc.director.getCollisionManager().enabled = true;
+                cc.director.getCollisionManager().enabled = true;//拖动结束后开启碰撞
+                carArray.forEach(function (v) {//开启为了变换位置
+                    v.active = true
+                })
+
                 self.scheduleOnce(function () {
                     carArray[i].position = carArray[i]._sourcePos;
-                }, 0.0001)
+                    carArray.forEach(function (v) {
+                        if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                            v.active = false//开碰撞完后，将没有图片的车辆隐藏
+                        }
+                    })
+                }, 0.01)
             })
             carArray[i].on(cc.Node.EventType.TOUCH_CANCEL, function () {
-                // console.log("cancel",cc.__carTouch);
-                // cc.__carTouch&&cc.__carTouch.pop();
-
-                // console.log("cancel",state)
                 state.pop();
                 carArray[i].position = carArray[i]._sourcePos;
 

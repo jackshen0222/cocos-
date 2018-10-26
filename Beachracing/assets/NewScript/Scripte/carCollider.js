@@ -12,36 +12,23 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        // var ws = new WebSocket('http:localhost:3000')
-
+        var array = [];//玩家车辆
+        var chi = cc.find('Canvas/car').children;
+        for (let i = 0; i < chi.length; i++) {
+            array.push(chi[i])
+        }
+        console.log(array[2].active)
 
     },
 
-    start() {
-
+    update(dt) {
     },
-
-    // update (dt) {},
 
     onCollisionExit: function (other, self) {
         var carArr = []//图片等级
@@ -73,17 +60,23 @@ cc.Class({
                 }
                 self.node.active = false;//被碰的隐藏,other-拖动的不隐藏
             }
-        };
-        if (other.node.group === 'CarCollider' && self.node.group === 'carPosition') {
-            if (self.node.active === true) {
-                console.log('node already active')
-                return;
-            }
-            else{
-                otherSp.spriteFrame=selfSp.spriteFrame
 
+            if (selfSp.spriteFrame.name === 'Money2') {
+                array.forEach(function (v) {
+                    carArr.forEach(function (j) {
+                        if (selfSp.spriteFrame = j.getComponent(cc.Sprite).spriteFrame) {
+                            otherSp.spriteFrame=j.getComponent(cc.Sprite).spriteFrame
+                        }
+                    })
+
+                })
+                // otherSp.spriteFrame = selfSp.spriteFrame
             }
+
         }
+
+
+
     },
 
 

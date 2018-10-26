@@ -50,10 +50,10 @@ cc.Class({
                     animNode = cc.instantiate(run[i])
                     // getComponent(cc.Animation).defaultClip.speed //动画加速
                     
+                    AnimeNodeCount.addChild(animNode)
+                    console.log(AnimeNodeCount.children)
                 }
             }
-            // AnimeNodeCount.addChild(animNode)
-            // console.log(AnimeNodeCount)
 
             this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
                 animNode.parent = scene//添加至场景
