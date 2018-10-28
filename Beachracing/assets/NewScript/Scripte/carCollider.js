@@ -18,13 +18,6 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        var array = [];//玩家车辆
-        var chi = cc.find('Canvas/car').children;
-        for (let i = 0; i < chi.length; i++) {
-            array.push(chi[i])
-        }
-        console.log(array[2].active)
-
     },
 
     update(dt) {
@@ -47,6 +40,21 @@ cc.Class({
         var selfSp = self.getComponent(cc.Sprite)
         //碰撞其他车辆
         if (other.node.group === 'CarCollider' && self.node.group === 'CarCollider') {
+
+            if (selfSp.spriteFrame.name === 'Money2') {
+                other.active = true
+                for (let i = 0; i < carArr.length; i++) {
+                    if (selfSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame) {
+                        otherSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame
+                        cc.loader.loadRes('Car1', cc.SpriteFrame, function (err, spriteFrame) {
+                            selfSp.spriteFrame.getComponent(cc.Sprite).spriteFrame = spriteFrame
+                        })
+                        self.active = false
+                    }
+                }
+                // otherSp.spriteFrame = selfSp.spriteFrame
+            }
+
             if (selfSp.spriteFrame === otherSp.spriteFrame) {//车辆合成
                 for (let i = 0; i < carArr.length; i++) {
                     if (selfSp.spriteFrame === carArr[i].getComponent(cc.Sprite).spriteFrame) {
@@ -59,18 +67,6 @@ cc.Class({
                     }
                 }
                 self.node.active = false;//被碰的隐藏,other-拖动的不隐藏
-            }
-
-            if (selfSp.spriteFrame.name === 'Money2') {
-                array.forEach(function (v) {
-                    carArr.forEach(function (j) {
-                        if (selfSp.spriteFrame = j.getComponent(cc.Sprite).spriteFrame) {
-                            otherSp.spriteFrame=j.getComponent(cc.Sprite).spriteFrame
-                        }
-                    })
-
-                })
-                // otherSp.spriteFrame = selfSp.spriteFrame
             }
 
         }
