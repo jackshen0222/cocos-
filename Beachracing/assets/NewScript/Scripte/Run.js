@@ -26,6 +26,9 @@ cc.Class({
         cc.director.getCollisionManager().enabled = true
 
     },
+
+    //每次拖放车辆播放动画，是实例化一个节点，
+    //但取消动画后，节点还未删除，依旧存在，到后面游戏肯定会崩溃
     onCollisionExit: function (other, self) {
         var carArr = []//图片等级
         var chi = cc.find("Canvas/carSprite").children
@@ -38,29 +41,28 @@ cc.Class({
             run.push(chi[i])
         }
         var otherSp = other.getComponent(cc.Sprite)
-        var scene, animNode//场景，实例化动画节点
-        var instNode=[]
-        if (self.tag == 1) {//碰撞跑道上的节点
-            for (let i = 0; i < carArr.length; i++) {
-                if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame) {
-                    other.node.active = true //默认显示节点
-                    scene = cc.director.getScene().getChildByName('Canvas');//获取场景
-                    animNode = cc.instantiate(run[i])
-                    // getComponent(cc.Animation).defaultClip.speed //动画加速
-                }
-            }
 
-            //animNode已经添加到了parent。不能再更改
+        var scene, animNode//场景，实例化动画节点
+        if (self.tag == 1) {//碰撞跑道上的节点
+            var spC//车俩等级
+            for (let i = 0; i < carArr.length; i++) {
+                if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame)
+                    spC = i
+            }
+            other.node.active = true //默认显示节点
+            scene = cc.director.getScene().getChildByName('Canvas');//获取场景
+            animNode = cc.instantiate(run[spC])
+
             this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
-                animNode.parent = scene.children[7]//添加至场景   节点instAnimeNode 
-            }, 0.03)
-            animNode.active = true//显示动画节点
+                scene.children[7].addChild(animNode)//添加至场景节点instAnimeNode 
+            }, 0.1)
+
             var anim = animNode.getComponent(cc.Animation)//获取克隆节点的动画
             anim.playAdditive(); // 播放第一个动画
             other.getComponent(cc.Collider).enabled = false;//关闭碰撞
             other.node.opacity = 100//节点半透明
-            //关闭动画显示节点
-            other.node.on(cc.Node.EventType.TOUCH_END, function () {
+
+            other.node.on(cc.Node.EventType.TOUCH_END, function () { //关闭动画显示节点
                 if (other.node.opacity = 100) {
                     other.getComponent(cc.Collider).enabled = true;//开启碰撞
                     other.node.opacity = 255//全显示 不透明
@@ -68,16 +70,20 @@ cc.Class({
                     animNode.active = false//隐藏动画节点
                 }
             });
-            
+
+            this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
+                console.log(scene.children[7].length)
+                // for (let i = 0; i < scene.children.length; i++) {
+                //     scene.children[i].getComponent(cc.Animation).defaultClip.speed = 5
+                // }
+
+                // getComponent(cc.Animation).defaultClip.speed //动画加速
+            });
+
+
+
         }
 
-        this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
-           console.log(instNode)
-            // for (let i = 0; i < instNode.children.length; i++) {
-            //     instNode.children[i].getComponent(cc.Animation).defaultClip.speed = 5
-            // }
-            // instNode.children.getComponent(cc.Animation).defaultClip.speed = 5
-        })
 
 
     },
