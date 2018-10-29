@@ -8,11 +8,15 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-var canDropCar = 0;//跑道上总车辆
+var CarSpeed = require('speedButton')
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        speedButt: {
+            default: null,
+            type: cc.Button
+        },
 
     },
 
@@ -20,8 +24,6 @@ cc.Class({
 
     onLoad: function () {
         cc.director.getCollisionManager().enabled = true
-
-        
 
     },
     onCollisionExit: function (other, self) {
@@ -36,12 +38,8 @@ cc.Class({
             run.push(chi[i])
         }
         var otherSp = other.getComponent(cc.Sprite)
-
-        //创建父节点:容纳所有实例化的动画节点
-        var AnimeNodeCount = new cc.Node();
-        AnimeNodeCount.parent = this.AnimeNodeCount
-
         var scene, animNode//场景，实例化动画节点
+        var instNode=[]
         if (self.tag == 1) {//碰撞跑道上的节点
             for (let i = 0; i < carArr.length; i++) {
                 if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame) {
@@ -49,14 +47,12 @@ cc.Class({
                     scene = cc.director.getScene().getChildByName('Canvas');//获取场景
                     animNode = cc.instantiate(run[i])
                     // getComponent(cc.Animation).defaultClip.speed //动画加速
-                    
-                    AnimeNodeCount.addChild(animNode)
-                    console.log(AnimeNodeCount.children)
                 }
             }
 
+            //animNode已经添加到了parent。不能再更改
             this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
-                animNode.parent = scene//添加至场景
+                animNode.parent = scene.children[7]//添加至场景   节点instAnimeNode 
             }, 0.03)
             animNode.active = true//显示动画节点
             var anim = animNode.getComponent(cc.Animation)//获取克隆节点的动画
@@ -72,10 +68,17 @@ cc.Class({
                     animNode.active = false//隐藏动画节点
                 }
             });
+            
         }
-        // this.doubleSpeedButton.node.on(cc.Node.EventType.TOUCH_END, function () {
 
-        // })
+        this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
+           console.log(instNode)
+            // for (let i = 0; i < instNode.children.length; i++) {
+            //     instNode.children[i].getComponent(cc.Animation).defaultClip.speed = 5
+            // }
+            // instNode.children.getComponent(cc.Animation).defaultClip.speed = 5
+        })
+
 
     },
 

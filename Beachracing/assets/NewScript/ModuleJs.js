@@ -15,6 +15,8 @@ var GameValue = {
         coin8: -1,
         coin9: -1,
     },
+
+   
    
 
 };

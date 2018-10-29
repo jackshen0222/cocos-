@@ -40,22 +40,7 @@ cc.Class({
         var selfSp = self.getComponent(cc.Sprite)
         //碰撞其他车辆
         if (other.node.group === 'CarCollider' && self.node.group === 'CarCollider') {
-
-            if (selfSp.spriteFrame.name === 'Money2') {
-                other.active = true
-                for (let i = 0; i < carArr.length; i++) {
-                    if (selfSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame) {
-                        otherSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame
-                        cc.loader.loadRes('Car1', cc.SpriteFrame, function (err, spriteFrame) {
-                            selfSp.spriteFrame.getComponent(cc.Sprite).spriteFrame = spriteFrame
-                        })
-                        self.active = false
-                    }
-                }
-                // otherSp.spriteFrame = selfSp.spriteFrame
-            }
-
-            if (selfSp.spriteFrame === otherSp.spriteFrame) {//车辆合成
+            if (selfSp.spriteFrame === otherSp.spriteFrame && selfSp.spriteFrame.name !== 'Money2') {//车辆合成
                 for (let i = 0; i < carArr.length; i++) {
                     if (selfSp.spriteFrame === carArr[i].getComponent(cc.Sprite).spriteFrame) {
                         if (carArr[i] === carArr[9]) {//最高等级时不能合成
@@ -69,8 +54,22 @@ cc.Class({
                 self.node.active = false;//被碰的隐藏,other-拖动的不隐藏
             }
 
+            // if (selfSp.spriteFrame.name === 'Money2') {
+            //     // for (let i = 0; i < carArr.length; i++) {
+            //     //     if (otherSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame) {
+            //     //         selfSp.spriteFrame = carArr[i].getComponent(cc.Sprite).spriteFrame
+            //     //     }
+            //     // }
+            //     var a = other.getComponent(cc.Sprite).spriteFrame
+            //     self.getComponent(cc.Sprite).spriteFrame = a
+            //     cc.loader.loadRes('Money1', cc.SpriteFrame, function (err, spriteFrame) {
+            //         other.getComponent(cc.Sprite).spriteFrame = spriteFrame
+            //     })
+            //     // this.scheduleOnce(function(){
+            //     //     self.node.active = true
+            //     // },1)
+            // }
         }
-
 
 
     },
