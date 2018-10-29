@@ -292,9 +292,9 @@ cc.Class({
 
             })
             carArray[i].on(cc.Node.EventType.TOUCH_END, function () {
-
                 state.pop();
                 cc.director.getCollisionManager().enabled = true;//拖动结束后开启碰撞
+
                 // carArray.forEach(function (v) {//开启为了变换位置
                 //     v.active = true
                 // })
@@ -306,7 +306,7 @@ cc.Class({
                     //         v.active = false//开碰撞完后，将没有图片的车辆隐藏
                     //     }
                     // })
-                }, 0.01)
+                }, 0.2)
             })
             carArray[i].on(cc.Node.EventType.TOUCH_CANCEL, function () {
                 state.pop();
