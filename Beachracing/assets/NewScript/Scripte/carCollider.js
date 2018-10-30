@@ -49,16 +49,16 @@ cc.Class({
                         carArr[i + 1].active = true//下一等级图片显示
                     }
                 }
-                self.node.active = false;//self被碰的隐藏,other-拖动的不隐藏
-
-                // /************************************* */
+                /************************************* */
                 // //self.SpriteFrame需要加载回原样，节点才可以正确隐藏还原
                 // cc.loader.loadRes('Money2', cc.SpriteFrame, function (err, res) {
                 //     selfSp.spriteFrame = res
                 // })
+                self.node.active = false;//self被碰的隐藏,other-拖动的不隐藏
+
             }
 
-            // /*********************************** */
+            /*********************************** */
             // //变更位置 
             // //在car.js 中的鼠标拖放End事件中，让节点全部显示，之后购买车辆时，再将图片为空的隐藏
             // if (selfSp.spriteFrame.name === 'Money2') {
