@@ -295,18 +295,14 @@ cc.Class({
                 state.pop();
                 cc.director.getCollisionManager().enabled = true;//拖动结束后开启碰撞
 
-                // carArray.forEach(function (v) {//开启为了变换位置
-                //     v.active = true
-                // })
+                carArray.forEach(function (v) {//开启为了变换位置
+                    v.active = true
+                })
 
                 self.scheduleOnce(function () {
                     carArray[i].position = carArray[i]._sourcePos;
-                    // carArray.forEach(function (v) {
-                    //     if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
-                    //         v.active = false//开碰撞完后，将没有图片的车辆隐藏
-                    //     }
-                    // })
-                }, 0.2)
+                  
+                }, 0.5)
             })
             carArray[i].on(cc.Node.EventType.TOUCH_CANCEL, function () {
                 state.pop();
@@ -329,6 +325,13 @@ cc.Class({
         var coin9 = -1
         //button 购买车辆
         this.buy.node.on(cc.Node.EventType.TOUCH_END, () => {
+            //在鼠标拖放End中，让全部节点显示，好让车辆变更位置，显示后将无法购买车辆
+            //所以在购买前，将图片为空的节点设置为隐藏
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b = this.lab1.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -355,6 +358,11 @@ cc.Class({
 
         })
         this.buySp1.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b1 = this.lab2.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -383,6 +391,11 @@ cc.Class({
             }
         })
         this.buySp2.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b2 = this.lab3.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -410,6 +423,11 @@ cc.Class({
             }
         })
         this.buySp3.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b3 = this.lab4.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -438,6 +456,11 @@ cc.Class({
             }
         })
         this.buySp4.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b4 = this.lab5.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -465,6 +488,11 @@ cc.Class({
             }
         })
         this.buySp5.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b5 = this.lab6.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -492,6 +520,11 @@ cc.Class({
             }
         })
         this.buySp6.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b6 = this.lab7.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -519,6 +552,11 @@ cc.Class({
             }
         })
         this.buySp7.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b7 = this.lab8.string
             var buyOrOff = false
             for (let i = 0; i < carArray.length; i++) {
@@ -547,6 +585,11 @@ cc.Class({
             }
         })
         this.buySp8.node.on(cc.Node.EventType.TOUCH_END, () => {
+            carArray.forEach(function (v) {
+                if (v.getComponent(cc.Sprite).spriteFrame.name === 'Money2') {
+                    v.active = false;
+                }
+            })
             var b8 = this.lab9.string
             var buyOrOff = false;
             for (let i = 0; i < carArray.length; i++) {
