@@ -44,6 +44,8 @@ cc.Class({
 
         var scene, animNode//场景，实例化动画节点
         if (self.tag == 1) {//碰撞跑道上的节点
+            if (otherSp.spriteFrame.name === 'Money2')//无车辆的节点禁止实例化动画
+                return
             var spC//车俩等级
             for (let i = 0; i < carArr.length; i++) {
                 if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame)

@@ -53,7 +53,7 @@ cc.Class({
                 cc.loader.loadRes('Money2', cc.SpriteFrame, function (err, res) {
                     selfSp.spriteFrame = res
                 })
-                self.node.active = false;//被碰的隐藏,other-拖动的不隐藏
+                self.node.active = false;//self被碰的隐藏,other-拖动的不隐藏
 
             }
             //变更位置 
