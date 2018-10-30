@@ -295,14 +295,13 @@ cc.Class({
                 state.pop();
                 cc.director.getCollisionManager().enabled = true;//拖动结束后开启碰撞
 
-                /******************************************* */
+                // /******************************************* */
                 // carArray.forEach(function (v) {//开启为了变换位置
                 //     v.active = true
                 // })
 
                 self.scheduleOnce(function () {
                     carArray[i].position = carArray[i]._sourcePos;
-
                 }, 0.01)
             })
             carArray[i].on(cc.Node.EventType.TOUCH_CANCEL, function () {
@@ -326,7 +325,7 @@ cc.Class({
         var coin9 = -1
         //button 购买车辆
         this.buy.node.on(cc.Node.EventType.TOUCH_END, () => {
-            /******************************************* */
+            // /******************************************* */
             // //在鼠标拖放End中，让全部节点显示，好让车辆变更位置，显示后将无法购买车辆
             // //所以在购买前，将图片为空的节点设置为隐藏
             // carArray.forEach(function (v) {
