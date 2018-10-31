@@ -349,7 +349,7 @@ cc.Class({
 
                 for (let i = 0; i < carArray.length; i++) {
                     if (carArray[i].active === false) {
-                        cc.loader.loadRes('Car1', cc.SpriteFrame, function (err, spriteFrame) {
+                        cc.loader.loadRes('1', cc.SpriteFrame, function (err, spriteFrame) {
                             carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                         })
                         carArray[i].active = true;
@@ -382,7 +382,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car2', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('2', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -414,7 +414,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car3', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('3', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -447,7 +447,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car4', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('4', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -479,7 +479,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car5', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('5', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -511,7 +511,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car6', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('6', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -543,7 +543,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car7', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('7', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -576,7 +576,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car8', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('8', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
@@ -609,7 +609,7 @@ cc.Class({
 
                     for (let i = 0; i < carArray.length; i++) {
                         if (carArray[i].active === false) {
-                            cc.loader.loadRes('Car9', cc.SpriteFrame, function (err, spriteFrame) {
+                            cc.loader.loadRes('9', cc.SpriteFrame, function (err, spriteFrame) {
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
