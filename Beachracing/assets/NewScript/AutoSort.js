@@ -28,55 +28,51 @@ cc.Class({
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
         }
+        var carSpriteArr = []
+        var chi = cc.find('Canvas/carSprite').children
+        for (let i = 0; i < chi.length; i++) {
+            carSpriteArr.push(chi[i])
+        }
+
+
         var self = this
-        // this.playerSortButton.node.on(cc.Node.EventType.TOUCH_END, function () {
+        this.playerSortButton.node.on(cc.Node.EventType.TOUCH_END, function () {
 
-        //     var existCar = []
-        //     var sortExistCar = []
+            var existCar = []
+            var sortExistCar = []
 
-        //     var continueJudge = false;
-        //     carArray.forEach(function (v) {
-        //         if (v.opacity === 100)
-        //             continueJudge = true
-        //     })
-        //     if (continueJudge) {
-        //         console.log('动画进行中，禁止变更位置')
-        //         return;
-        //     }
+            var continueJudge = false;
+            carArray.forEach(function (v) {
+                if (v.opacity === 100)
+                    continueJudge = true
+            })
+            if (continueJudge) {
+                console.log('动画进行中，禁止变更位置')
+                return;
+            }
+            for (let i = 0; i < carArray.length; i++) {
+                if (carArray[i].active === true) {
+                    existCar.push(carArray[i])//获得存在的节点
+                }
+                carArray[i].active = false
+            }
 
-        //     for (let i = 0; i < carArray.length; i++) {
-        //         if (carArray[i].active === true)
-        //             existCar.push(carArray[i])//获得存在的节点
-        //         carArray[i].active = false
-        //     }
+            // existCar = existCar.sort((a, b) => {
+            //     var aName = Number(a.getComponent(cc.Sprite).spriteFrame.name)
+            //     var bName = Number(b.getComponent(cc.Sprite).spriteFrame.name)
+            //     return bName - aName
+            // })
 
-        //     existCar = existCar.sort((a,b)=>{
-        //         var aName = Number(a.getComponent(cc.Sprite).spriteFrame.name)
-        //         var bName = Number(b.getComponent(cc.Sprite).spriteFrame.name)
-        //         return aName - bName;
-        //     })
-        //     //对已存在的节点进行排序
-        //     //暂未实现
-        //     // for (let i = 0; i < existCar.length - 1; i++) {
-        //     //     for (let j = 0; j < existCar.length - 1 - i; j++) {
-        //     //         if (existCar[j].getComponent(cc.Sprite).spriteFrame.name.toString() > existCar[j + 1].getComponent(cc.Sprite).spriteFrame.name.toString()) {
-        //     //             let a = existCar[j];
-        //     //             let b = existCar[j + 1];
-        //     //             [a, b] = [b, a]
-                        
-        //     //         }
-        //     //     }
-        //     // }
-        //     for (let i = 0; i < existCar.length; i++) {//实行排序
-        //         if (carArray[i].active === false) {
-        //             carArray[i].getComponent(cc.Sprite).spriteFrame = existCar[i].getComponent(cc.Sprite).spriteFrame
-        //             carArray[i].active = true
-        //         }
-        //     }
+            for (let i = 0; i < existCar.length; i++) {//实行排序
+                if (carArray[i].active === false) {
+                    carArray[i].getComponent(cc.Sprite).spriteFrame = existCar[i].getComponent(cc.Sprite).spriteFrame
+                    carArray[i].active = true
+                }
+            }
 
-        //     console.log(existCar)
+            console.log(existCar)
 
-        // })
+        })
 
     },
 
