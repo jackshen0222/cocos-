@@ -74,37 +74,38 @@ cc.Class({
                 }
             });
 
-            // //动画加速
-            // this.speedButt.node.on(cc.Node.EventType.TOUCH_END, () => {
-            //     var accelerance = [];//原速度
-            //     var changesSpeed = []//改变后的速度
-            //     var animeParentNode = scene.children[7]
+            //动画加速
+            this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
+                var accelerance = [];//原速度
+                var changesSpeed = []//改变后的速度
+                var animeParentNode = scene.children[7]
 
-            //     // var arr = [];
+                // var arr = [];
 
-            //     for (let i = 0; i < animeParentNode.children.length; i++) {
-            //         // animeParentNode.children[i].getComponent(cc.Animation).speed = 10;
-            //         // arr.push(cc.sequence(cc.delayTime(1), cc.callFunc(() => {
-            //         //     animeParentNode.children[i].getComponent(cc.Animation).play();
-            //         // })))
+                for (let i = 0; i < animeParentNode.children.length; i++) {
+                    // animeParentNode.children[i].getComponent(cc.Animation).speed = 10;
+                    // arr.push(cc.sequence(cc.delayTime(1), cc.callFunc(() => {
+                    //     animeParentNode.children[i].getComponent(cc.Animation).play();
+                    // })))
 
-            //         accelerance.push(animeParentNode.children[i].getComponent(cc.Animation).currentClip.speed) //获取原先车辆的速度
-            //         changesSpeed[i] = accelerance[i] * 2.5//在原先车辆速度的基础上加速
+                    accelerance.push(animeParentNode.children[i].getComponent(cc.Animation).currentClip.speed) //获取原先车辆的速度
+                    changesSpeed[i] = accelerance[i] * 2.5//在原先车辆速度的基础上加速
 
-            //         for (let j = 0; j < animeParentNode.children.length; j++) {
-            //             selff.schedule(function () {
-            //                 cc.delayTime(1)
-            //                 animeParentNode.children[j].getComponent(cc.Animation).play().speed = changesSpeed[i]//赋值加速
-            //             })
-            //             selff.scheduleOnce(function (v) {
-            //                 animeParentNode.children[j].getComponent(cc.Animation).play().speed = accelerance[i]  //加速时间耗尽，还原原速度
-            //             }, 5)
-            //         }
-            //     }
-            //     // scene.runAction(cc.sequence(arr)) 
 
-            // }
-            // );
+                    cc.sequence(cc.delayTime(1), cc.callFunc(() => {
+                        for (let j = 0; j < animeParentNode.children.length; j++) {
+                            animeParentNode.children[j].getComponent(cc.Animation).play().speed = changesSpeed[i]
+                            selff.scheduleOnce(function (v) {
+                                animeParentNode.children[j].getComponent(cc.Animation).play().speed = accelerance[i]  //加速时间耗尽，还原原速度
+                            }, 5)
+                        }
+                    }))
+
+                }
+                // scene.runAction(cc.sequence(arr)) 
+
+             }
+            );
 
 
 
