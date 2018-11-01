@@ -12,17 +12,32 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        AnimSpeedControl:{
-            default:null,
-            type:cc.Button
+        AnimSpeedControl: {
+            default: null,
+            type: cc.Button
         },
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        this.AnimSpeedControl.node.on(cc.Node.EventType.TOUCH_END, () => {
+            var scene = cc.director.getScene().getChildByName('Canvas');
+            var animeParentNode = scene.children[7]
+            for (let i = 0; i < animeParentNode.children.length; i++) {
+                //    console.log(animeParentNode.children[i])
+                var anim = animeParentNode.children[i].getComponent(cc.Animation)
+                var animState = anim.getAnimationState('Car_1')
+                // var animState1 = anim.getAnimationState('Car_2');
+                animState.speed += 0.5
+                // animState1.speed = 0.7
+                console.log(animState.speed)
+               
+            }
+        })
+    },
 
-    start () {
+    start() {
 
     },
 
