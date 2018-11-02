@@ -43,73 +43,70 @@ cc.Class({
         var otherSp = other.getComponent(cc.Sprite)
         var selff = this;
         var scene, animNode//场景，实例化动画节点
-        if (self.tag == 1) {//碰撞跑道上的节点
-            if (otherSp.spriteFrame.name === 'Money2')//无车辆的节点禁止实例化动画
-                return
-            var spC//车俩等级
-            for (let i = 0; i < carArr.length; i++) {
-                if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame)
-                    spC = i
-            }
-            other.node.active = true //默认显示节点
-            scene = cc.director.getScene().getChildByName('Canvas');//获取场景
-            animNode = cc.instantiate(run[spC])
 
-            this.scheduleOnce(function () {//延后加载，解决屏幕闪烁图片
-                scene.children[7].addChild(animNode)//添加至场景节点instAnimeNode 
-            }, 0.1)
-
-            var anim = animNode.getComponent(cc.Animation)//获取克隆节点的动画
-            anim.playAdditive(); // 播放第一个动画
-            other.getComponent(cc.Collider).enabled = false;//关闭碰撞
-            other.node.opacity = 100//节点半透明
-
-            //取消动画
-            other.node.on(cc.Node.EventType.TOUCH_END, function () { //关闭动画显示节点
-                if (other.node.opacity = 100) {
-                    other.getComponent(cc.Collider).enabled = true;//开启碰撞
-                    other.node.opacity = 255//全显示 不透明
-                    anim.stop();//停止动画
-                    animNode.active = false//隐藏动画节点
-                }
-            });
-
-            //动画加速
-            this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
-                var accelerance = [];//原速度
-                var changesSpeed = []//改变后的速度
-                var animeParentNode = scene.children[7]
-
-                // var arr = [];
-
-                for (let i = 0; i < animeParentNode.children.length; i++) {
-                    // animeParentNode.children[i].getComponent(cc.Animation).speed = 10;
-                    // arr.push(cc.sequence(cc.delayTime(1), cc.callFunc(() => {
-                    //     animeParentNode.children[i].getComponent(cc.Animation).play();
-                    // })))
-
-                    accelerance.push(animeParentNode.children[i].getComponent(cc.Animation).currentClip.speed) //获取原先车辆的速度
-                    changesSpeed[i] = accelerance[i] * 2.5//在原先车辆速度的基础上加速
-
-
-                    cc.sequence(cc.delayTime(1), cc.callFunc(() => {
-                        for (let j = 0; j < animeParentNode.children.length; j++) {
-                            animeParentNode.children[j].getComponent(cc.Animation).play().speed = changesSpeed[i]
-                            selff.scheduleOnce(function (v) {
-                                animeParentNode.children[j].getComponent(cc.Animation).play().speed = accelerance[i]  //加速时间耗尽，还原原速度
-                            }, 5)
-                        }
-                    }))
-
-                }
-                // scene.runAction(cc.sequence(arr)) 
-
-             }
-            );
-
-
-
+        scene = cc.director.getScene().getChildByName('Canvas');//获取场景
+        other.node.active = true //显示节点
+        // if (self.tag == 1) {//碰撞跑道上的节点
+        //     if (otherSp.spriteFrame.name === 'Money2')//无车辆的节点禁止实例化动画
+        //         return
+        // }
+        for (let i = 0; i < carArr.length; i++) {
+            if (otherSp.spriteFrame == carArr[i].getComponent(cc.Sprite).spriteFrame)
+                animNode = cc.instantiate(run[i])
         }
+        scene.children[7].addChild(animNode)//添加至场景节点instAnimeNode 
+
+        var anim = animNode.getComponent(cc.Animation)//获取instantiate节点的动画
+        anim.playAdditive(); // 播放第一个动画
+        other.getComponent(cc.Collider).enabled = false;//关闭碰撞
+        other.node.opacity = 100//节点半透明
+
+        //取消动画
+        other.node.on(cc.Node.EventType.TOUCH_END, function () { //关闭动画显示节点
+            if (other.node.opacity = 100) {
+                other.getComponent(cc.Collider).enabled = true;//开启碰撞
+                other.node.opacity = 255//全显示 不透明
+                anim.stop();//停止动画
+                animNode.active = false//隐藏动画节点
+            }
+        });
+
+        // //动画加速
+        // this.speedButt.node.on(cc.Node.EventType.TOUCH_END, function () {
+        //     var accelerance = [];//原速度
+        //     var changesSpeed = []//改变后的速度
+        //     var animeParentNode = scene.children[7]
+
+        //     // var arr = [];
+
+        //     for (let i = 0; i < animeParentNode.children.length; i++) {
+        //         // animeParentNode.children[i].getComponent(cc.Animation).speed = 10;
+        //         // arr.push(cc.sequence(cc.delayTime(1), cc.callFunc(() => {
+        //         //     animeParentNode.children[i].getComponent(cc.Animation).play();
+        //         // })))
+
+        //         accelerance.push(animeParentNode.children[i].getComponent(cc.Animation).currentClip.speed) //获取原先车辆的速度
+        //         changesSpeed[i] = accelerance[i] * 2.5//在原先车辆速度的基础上加速
+
+
+        //         cc.sequence(cc.delayTime(1), cc.callFunc(() => {
+        //             for (let j = 0; j < animeParentNode.children.length; j++) {
+        //                 animeParentNode.children[j].getComponent(cc.Animation).play().speed = changesSpeed[i]
+        //                 selff.scheduleOnce(function (v) {
+        //                     animeParentNode.children[j].getComponent(cc.Animation).play().speed = accelerance[i]  //加速时间耗尽，还原原速度
+        //                 }, 5)
+        //             }
+        //         }))
+
+        //     }
+        //     // scene.runAction(cc.sequence(arr)) 
+
+        //   }
+        // );
+
+
+
+
 
 
 
@@ -121,34 +118,34 @@ cc.Class({
     },
 
     carone() {
-        window.coinTotalLabel += 10 / 9
+        window.coinTotalLabel += 10  
     },
     cartwo() {
-        window.coinTotalLabel += 20 / 9
+        window.coinTotalLabel += 20  
     },
     carthree() {
-        window.coinTotalLabel += 40 / 9
+        window.coinTotalLabel += 40  
     },
     carfour() {
-        window.coinTotalLabel += 80 / 9
+        window.coinTotalLabel += 80  
     },
     carfive() {
-        window.coinTotalLabel += 150 / 9
+        window.coinTotalLabel += 150  
     },
     carsix() {
-        window.coinTotalLabel += 300 / 9
+        window.coinTotalLabel += 300  
     },
     carseven() {
-        window.coinTotalLabel += 500 / 9
+        window.coinTotalLabel += 500  
     },
     careight() {
-        window.coinTotalLabel += 800 / 9
+        window.coinTotalLabel += 800  
     },
     carnine() {
-        window.coinTotalLabel += 1500 / 9
+        window.coinTotalLabel += 1500  
     },
     carten() {
-        window.coinTotalLabel += 2000 / 9
+        window.coinTotalLabel += 2000  
     },
 
     start() {

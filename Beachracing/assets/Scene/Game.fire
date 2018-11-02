@@ -9949,8 +9949,8 @@
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
-      "x": 1279,
-      "y": -71
+      "x": 1293,
+      "y": -81
     },
     "_size": {
       "__type__": "cc.Size",
@@ -10171,7 +10171,7 @@
     "node": {
       "__id__": 262
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -10390,7 +10390,7 @@
     "node": {
       "__id__": 269
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 0,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -10609,7 +10609,7 @@
     "node": {
       "__id__": 276
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -10828,7 +10828,7 @@
     "node": {
       "__id__": 283
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -11047,7 +11047,7 @@
     "node": {
       "__id__": 290
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -11266,7 +11266,7 @@
     "node": {
       "__id__": 297
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -11485,7 +11485,7 @@
     "node": {
       "__id__": 304
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -11704,7 +11704,7 @@
     "node": {
       "__id__": 311
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
@@ -11923,7 +11923,7 @@
     "node": {
       "__id__": 318
     },
-    "_enabled": true,
+    "_enabled": false,
     "tag": 1,
     "_offset": {
       "__type__": "cc.Vec2",
