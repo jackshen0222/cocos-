@@ -40,8 +40,8 @@ cc.Class({
         for (let i = 0; i < chi.length; i++) {
             run.push(chi[i])
         }
-
         var otherSp = other.getComponent(cc.Sprite)
+        var selff = this;
         var scene, animNode//场景，实例化动画节点
 
         scene = cc.director.getScene().getChildByName('Canvas');//获取场景
