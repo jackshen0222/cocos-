@@ -16,25 +16,49 @@ cc.Class({
             default: null,
             type: cc.Button
         },
+
+        AnimationFile: {
+            default: null,
+            type: cc.Node
+        }
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.AnimSpeedControl.node.on(cc.Node.EventType.TOUCH_END, () => {
-            var scene = cc.director.getScene().getChildByName('Canvas');
-            var animeParentNode = scene.children[7]
-            for (let i = 0; i < animeParentNode.children.length; i++) {
-                //    console.log(animeParentNode.children[i])
-                var anim = animeParentNode.children[i].getComponent(cc.Animation)
-                var animState = anim.getAnimationState('Car_1')
-                // var animState1 = anim.getAnimationState('Car_2');
-                animState.speed += 0.5
-                // animState1.speed = 0.7
-                console.log(animState.speed)
-               
-            }
-        })
+
+       this.AnimeAccelerate();
+    },
+
+    AnimeAccelerate(){
+         //所有的动画
+         var animeNode = this.AnimationFile.getComponent(cc.Animation)._clips
+         //所有实例化节点的父节点
+         const animeParentNode = cc.director.getScene().getChildByName('Canvas').children[7].children
+ 
+         this.AnimSpeedControl.node.on(cc.Node.EventType.TOUCH_END, () => {
+ 
+             //实例化节点加速
+             animeParentNode.forEach(function (v) {
+                 var clipName = v.getComponent(cc.Animation)._clips[0].name
+                 v.getComponent(cc.Animation).getAnimationState(clipName).speed += 0.15
+             })
+             //加速持续期间，后面加入的节点也加速
+             animeNode.forEach(function (v) {  //后面拖放开始播放的动画也要进行加速
+                 v.speed += 0.15
+             })
+ 
+             //加速时间耗尽 60s，恢复原速
+             this.scheduleOnce(function () {
+                 animeNode.forEach(function (v) {  //后面拖放开始播放的动画也要进行加速
+                     v.speed -= 0.15
+                 })
+                 animeParentNode.forEach(function (v) {
+                     var clipName = v.getComponent(cc.Animation)._clips[0].name
+                     v.getComponent(cc.Animation).getAnimationState(clipName).speed -= 0.15
+                 })
+             }, 60)
+         })
     },
 
     start() {
