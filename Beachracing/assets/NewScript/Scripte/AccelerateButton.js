@@ -48,7 +48,7 @@ cc.Class({
                  v.speed += 0.15
              })
  
-             //加速时间耗尽 60s，恢复原速
+             //60s加速时间耗尽，恢复原速
              this.scheduleOnce(function () {
                  animeNode.forEach(function (v) {  //后面拖放开始播放的动画也要进行加速
                      v.speed -= 0.15
