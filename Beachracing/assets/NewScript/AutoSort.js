@@ -15,7 +15,12 @@ cc.Class({
         playerSortButton: {
             default: null,
             type: cc.Button
-        }
+        },
+        idleSprite: {
+            default: null,
+            type: cc.SpriteFrame
+        },
+
     },
     onLoad() {
         this.PlayerAutoSort();
@@ -34,9 +39,9 @@ cc.Class({
             carSpriteArr.push(chi[i])
         }
 
-
         var self = this
         this.playerSortButton.node.on(cc.Node.EventType.TOUCH_END, function () {
+
 
             var existCar = []
             var sortExistCar = []
@@ -57,20 +62,22 @@ cc.Class({
                 carArray[i].active = false
             }
 
-            // existCar = existCar.sort((a, b) => {
-            //     var aName = Number(a.getComponent(cc.Sprite).spriteFrame.name)
-            //     var bName = Number(b.getComponent(cc.Sprite).spriteFrame.name)
-            //     return bName - aName
-            // })
+            sortExistCar = existCar.sort((a, b) => {
+                var aName = Number(a.getComponent(cc.Sprite).spriteFrame.name)
+                var bName = Number(b.getComponent(cc.Sprite).spriteFrame.name)
+                return bName - aName
+            })
 
             for (let i = 0; i < existCar.length; i++) {//实行排序
-                if (carArray[i].active === false) {
-                    carArray[i].getComponent(cc.Sprite).spriteFrame = existCar[i].getComponent(cc.Sprite).spriteFrame
-                    carArray[i].active = true
-                }
+                carArray[i].active = true
+                var name = sortExistCar[i].getComponent(cc.Sprite).spriteFrame.name
+                cc.loader.loadRes(name, cc.SpriteFrame, function (err, res) {
+                    carArray[i].getComponent(cc.Sprite).spriteFrame = res
+                })
+
             }
 
-            console.log(existCar)
+            console.log(sortExistCar)
 
         })
 
