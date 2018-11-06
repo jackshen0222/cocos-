@@ -77,7 +77,7 @@ cc.Class({
 
             }
 
-            console.log(sortExistCar)
+            // console.log(sortExistCar)
 
         })
 
