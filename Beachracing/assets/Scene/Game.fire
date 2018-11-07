@@ -84,19 +84,16 @@
       },
       {
         "__id__": 241
-      },
-      {
-        "__id__": 317
       }
     ],
     "_tag": -1,
     "_active": true,
     "_components": [
       {
-        "__id__": 323
+        "__id__": 317
       },
       {
-        "__id__": 324
+        "__id__": 318
       }
     ],
     "_prefab": null,
@@ -7982,8 +7979,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 280,
-      "height": 240
+      "width": 123,
+      "height": 97
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -8010,7 +8007,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "a65c1cc9-385d-4d49-a186-9dadc99eda7d"
+      "__uuid__": "a19e50b1-1732-4ac9-a4e4-3890d7a419d6"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -8095,8 +8092,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 280,
-      "height": 240
+      "width": 123,
+      "height": 97
     },
     "_rotationX": 0,
     "_rotationY": 0,
@@ -8123,7 +8120,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "a65c1cc9-385d-4d49-a186-9dadc99eda7d"
+      "__uuid__": "a19e50b1-1732-4ac9-a4e4-3890d7a419d6"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -11926,235 +11923,6 @@
     "_globalZOrder": 0,
     "_opacityModifyRGB": false,
     "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "BeginnerGuide",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 2
-    },
-    "_children": [
-      {
-        "__id__": 318
-      }
-    ],
-    "_tag": -1,
-    "_active": true,
-    "_components": [],
-    "_prefab": null,
-    "_id": "b62uSDBKVDDIgaR22pwlbu",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 0,
-      "height": 0
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "buyCarClip",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 317
-    },
-    "_children": [
-      {
-        "__id__": 319
-      }
-    ],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 321
-      },
-      {
-        "__id__": 322
-      }
-    ],
-    "_prefab": null,
-    "_id": "e3QbBjFjdAoKdmfwNGo/Ce",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 0,
-      "g": 0,
-      "b": 0,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 188,
-      "height": 40
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 1,
-    "_scaleY": 1,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": -43,
-      "y": -140
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "新手引导手指",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 318
-    },
-    "_children": [],
-    "_tag": -1,
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 320
-      }
-    ],
-    "_prefab": null,
-    "_id": "9eo4JsOXRMjKQPd6AxGugu",
-    "_opacity": 255,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 255,
-      "g": 255,
-      "b": 255,
-      "a": 255
-    },
-    "_cascadeOpacityEnabled": true,
-    "_anchorPoint": {
-      "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
-    },
-    "_contentSize": {
-      "__type__": "cc.Size",
-      "width": 47,
-      "height": 47
-    },
-    "_rotationX": 0,
-    "_rotationY": 0,
-    "_scaleX": 2.5,
-    "_scaleY": 2.5,
-    "_position": {
-      "__type__": "cc.Vec2",
-      "x": 102,
-      "y": -144
-    },
-    "_skewX": 0,
-    "_skewY": 0,
-    "_localZOrder": 0,
-    "_globalZOrder": 0,
-    "_opacityModifyRGB": false,
-    "groupIndex": 0
-  },
-  {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 319
-    },
-    "_enabled": true,
-    "_spriteFrame": {
-      "__uuid__": "29effe5d-7c1b-4edb-8e78-106734863068"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_atlas": null
-  },
-  {
-    "__type__": "cc.Animation",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 318
-    },
-    "_enabled": true,
-    "_defaultClip": {
-      "__uuid__": "adcc4582-a4c4-42fa-84f5-48f98e32e995"
-    },
-    "_clips": [
-      {
-        "__uuid__": "adcc4582-a4c4-42fa-84f5-48f98e32e995"
-      }
-    ],
-    "playOnLoad": false
-  },
-  {
-    "__type__": "cc.Label",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 318
-    },
-    "_enabled": true,
-    "_useOriginalSize": false,
-    "_actualFontSize": 40,
-    "_fontSize": 40,
-    "_lineHeight": 40,
-    "_enableWrapText": false,
-    "_N$file": null,
-    "_isSystemFontUsed": true,
-    "_spacingX": 0,
-    "_N$string": "\"点我\"买车",
-    "_N$horizontalAlign": 0,
-    "_N$verticalAlign": 0,
-    "_N$fontFamily": "Arial",
-    "_N$overflow": 0
   },
   {
     "__type__": "cc.Canvas",

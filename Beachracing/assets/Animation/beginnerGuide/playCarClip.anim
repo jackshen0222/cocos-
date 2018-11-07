@@ -1,0 +1,47 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "playCarClip",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.3333333333333333,
+  "sample": 60,
+  "speed": 0.25,
+  "wrapMode": "2",
+  "curveData": {
+    "paths": {
+      "rookieFinger": {
+        "props": {
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                -91,
+                147
+              ]
+            },
+            {
+              "frame": 0.3333333333333333,
+              "value": [
+                -206,
+                21
+              ]
+            }
+          ]
+        },
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "29effe5d-7c1b-4edb-8e78-106734863068"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "events": []
+}
