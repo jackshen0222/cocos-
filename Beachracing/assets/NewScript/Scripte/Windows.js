@@ -1,7 +1,4 @@
-
-window.coinTotalLabel = 10000000;
-window.coinSecondLabel = 0;
-
-
-
-
+module.exports = {
+    coinTotalLabel: 10000000,
+    coinSecondLabel: 0,
+}

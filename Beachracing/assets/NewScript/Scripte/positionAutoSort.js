@@ -16,11 +16,7 @@ cc.Class({
             default: null,
             type: cc.Button
         },
-        idleSprite: {
-            default: null,
-            type: cc.SpriteFrame
-        },
-
+    
     },
     onLoad() {
         this.PlayerAutoSort();

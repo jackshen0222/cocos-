@@ -2,6 +2,8 @@
 
 var carArrSpriteV;
 var buyNine = 0;
+
+var window=require('Windows')
 cc.Class({
     extends: cc.Component,
 
