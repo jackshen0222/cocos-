@@ -1,14 +1,14 @@
 {
   "ver": "1.0.0",
-  "uuid": "beb08ace-b70b-4190-a30b-a1f64e99c59a",
+  "uuid": "108d8984-d745-4b89-af67-4ed8508f682c",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "subMetas": {
-    "rookieFinger": {
+    "新手引导手指": {
       "ver": "1.0.3",
-      "uuid": "a73d25cf-08b0-4bc4-9bba-1a97740543b9",
-      "rawTextureUuid": "beb08ace-b70b-4190-a30b-a1f64e99c59a",
+      "uuid": "29effe5d-7c1b-4edb-8e78-106734863068",
+      "rawTextureUuid": "108d8984-d745-4b89-af67-4ed8508f682c",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

@@ -3,27 +3,45 @@
   "_name": "composeSecondCarClip",
   "_objFlags": 0,
   "_rawFiles": null,
-  "_duration": 0.3333333333333333,
+  "_duration": 0.36666666666666664,
   "sample": 60,
-  "speed": 0.25,
+  "speed": 0.3,
   "wrapMode": "2",
   "curveData": {
     "paths": {
       "rookieFinger": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": [
+              {
+                "frame": 0,
+                "value": {
+                  "__uuid__": "29effe5d-7c1b-4edb-8e78-106734863068"
+                }
+              },
+              {
+                "frame": 0.35,
+                "value": {
+                  "__uuid__": "29effe5d-7c1b-4edb-8e78-106734863068"
+                }
+              }
+            ]
+          }
+        },
         "props": {
           "position": [
             {
               "frame": 0,
               "value": [
-                55,
-                144
+                25,
+                26
               ]
             },
             {
-              "frame": 0.3333333333333333,
+              "frame": 0.35,
               "value": [
-                -93,
-                138
+                -126,
+                21
               ]
             }
           ]

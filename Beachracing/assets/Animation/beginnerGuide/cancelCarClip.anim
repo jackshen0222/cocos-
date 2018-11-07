@@ -10,14 +10,19 @@
   "curveData": {
     "paths": {
       "circleClipSprite": {
+        "comps": {
+          "cc.Sprite": {
+            "spriteFrame": []
+          }
+        },
         "props": {
           "scale": [
             {
               "frame": 0,
               "value": {
                 "__type__": "cc.Vec2",
-                "x": 1,
-                "y": 1
+                "x": 0.7,
+                "y": 0.7
               }
             },
             {
