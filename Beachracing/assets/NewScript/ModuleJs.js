@@ -2,7 +2,7 @@
 
 
 var GameValue = {
-    extends:cc.Component,
+   
 
     CoinNumOfPurch: {//金币购买次数
         coin1: -1,
@@ -15,10 +15,7 @@ var GameValue = {
         coin8: -1,
         coin9: -1,
     },
-
-   
-   
-
 };
+
 
 module.exports = GameValue
