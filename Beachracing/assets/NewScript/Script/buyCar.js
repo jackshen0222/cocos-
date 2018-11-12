@@ -19,18 +19,14 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-        //总钱
-        coinTotal: {
+
+        lab1: {
             default: null,
             type: cc.Label,
         },
-        carDeblock: {
-            default: null,
-            type: cc.Node
-        },
 
-
-        lab1: {//基础车辆
+        //总钱
+        coinTotal: {
             default: null,
             type: cc.Label,
         },
@@ -66,54 +62,36 @@ cc.Class({
         if (carArrSprite[3].active === true) {
             this.scrollViewBuyCar.children[0].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[0].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[0].active = true
-
-            
         }
         if (carArrSprite[4].active === true) {
             this.scrollViewBuyCar.children[1].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[1].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[1].active = true
-
         }
         if (carArrSprite[5].active === true) {
             this.scrollViewBuyCar.children[2].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[2].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[2].active = true
         }
         if (carArrSprite[6].active === true) {
             this.scrollViewBuyCar.children[3].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[3].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[3].active = true
         }
         if (carArrSprite[7].active === true) {
             this.scrollViewBuyCar.children[4].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[4].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[4].active = true
         }
         if (carArrSprite[8].active === true) {
             this.scrollViewBuyCar.children[5].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[5].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[5].active = true
         }
         if (carArrSprite[9].active === true) {
             this.scrollViewBuyCar.children[6].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[6].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[6].active = true
         }
         if (buyNine >= 8) {
             this.scrollViewBuyCar.children[7].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[7].children[1].opacity = 255
-            this.carDeblock.active = true
-            this.carDeblock.children[7].active = true
         }
+
     },
 
 

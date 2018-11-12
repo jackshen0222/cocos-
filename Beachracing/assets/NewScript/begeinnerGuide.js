@@ -20,7 +20,11 @@ cc.Class({
             default: null,
             type: cc.Button
         },
-      
+        buyCarBtParent: {
+            default: null,
+            type: cc.Node
+        },
+
 
 
     },
@@ -44,6 +48,9 @@ cc.Class({
         // var canvasNode = cc.find("Canvas");
         // cc.eventManager.pauseTarget(canvasNode, true);
         // cc.eventManager.resumeTarget(canvasNode.children[4], true);
+        //     this.buyCarBtParent.on(cc.Node.EventType.TOUCH_END, (event) => {
+        //         event.stopPropagation();
+        // })
     },
 
     update(dt) {
