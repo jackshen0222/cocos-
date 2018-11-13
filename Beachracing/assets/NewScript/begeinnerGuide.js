@@ -47,9 +47,13 @@ cc.Class({
     },
 
     update(dt) {
-
+         
         // var canvasNode = cc.find("Canvas");
         if (cc.find('Canvas/rookieGuide').active === true) {
+           
+            cc.find('Canvas/Button/buyMore').pauseSystemEvents(true)
+            cc.find('Canvas/Button/acceleranceButton').pauseSystemEvents(true)
+            cc.find('Canvas/Button/playerAutoSortButton').pauseSystemEvents(true)
             cc.director.getCollisionManager().enabled = false
             //买了两辆车
             if (cc.find('Canvas/car').children[1].active === true) {
@@ -58,7 +62,7 @@ cc.Class({
                 this.guideParent.children[0].children[1].active = true
                 this.guideParent.children[1].children[1].active = true
                 cc.find('Canvas/Run').active = false
-                cc.director.getCollisionManager().enabled = true
+                cc.director.getCollisionManager().enabled = true 
 
                 // cc.eventManager.pauseTarget(canvasNode.children[4].children[2], true);
             }
@@ -77,14 +81,17 @@ cc.Class({
                 this.guideParent.children[1].children[2].active = false
                 this.guideParent.children[0].children[3].active = true
                 this.guideParent.children[1].children[3].active = true
-
             }
+            
             //最后收回车辆
             if (cc.find('Canvas/car').children[0].opacity === 255 && this.guideParent.children[1].children[3].active === true) {
                 cc.find('Canvas/rookieGuide').active = false
 
                 // cc.eventManager.resumeTarget(canvasNode.children[4].children[3], true);
                 // cc.eventManager.resumeTarget(canvasNode, true);
+                cc.find('Canvas/Button/buyMore').resumeSystemEvents(true)
+                cc.find('Canvas/Button/acceleranceButton').resumeSystemEvents(true)
+                cc.find('Canvas/Button/playerAutoSortButton').resumeSystemEvents(true)
             }
         }
     },
