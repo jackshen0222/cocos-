@@ -12868,6 +12868,18 @@
     "_atlas": null
   },
   {
+    "__type__": "cf669unBoVNdZT9qbyqT16L",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 238
+    },
+    "_enabled": true,
+    "a": {
+      "__id__": 321
+    }
+  },
+  {
     "__type__": "cc.Button",
     "_name": "",
     "_objFlags": 0,
@@ -12893,7 +12905,7 @@
     "duration": 0.1,
     "zoomScale": 1.2,
     "clickEvents": [],
-    "_N$interactable": false,
+    "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
       "__type__": "cc.Color",
@@ -12917,18 +12929,6 @@
     "_N$disabledSprite": null,
     "_N$target": {
       "__id__": 238
-    }
-  },
-  {
-    "__type__": "cf669unBoVNdZT9qbyqT16L",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 238
-    },
-    "_enabled": true,
-    "a": {
-      "__id__": 320
     }
   },
   {
