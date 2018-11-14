@@ -41,14 +41,10 @@ cc.Class({
         this.guideParent.children[0].children[0].active = true
 
 
-        // var canvasNode = cc.find("Canvas");
-        // cc.eventManager.pauseTarget(canvasNode, true);
-        // cc.eventManager.resumeTarget(canvasNode.children[4], true);
     },
 
     update(dt) {
          
-        // var canvasNode = cc.find("Canvas");
         if (cc.find('Canvas/rookieGuide').active === true) {
            
             cc.find('Canvas/Button/buyMore').pauseSystemEvents(true)
@@ -63,8 +59,8 @@ cc.Class({
                 this.guideParent.children[1].children[1].active = true
                 cc.find('Canvas/Run').active = false
                 cc.director.getCollisionManager().enabled = true 
+                cc.find('Canvas/Button/buyBase').pauseSystemEvents(true)
 
-                // cc.eventManager.pauseTarget(canvasNode.children[4].children[2], true);
             }
             //合成图片后
             if (cc.find('Canvas/car').children[0].getComponent(cc.Sprite).spriteFrame.name === '2') {
@@ -87,8 +83,8 @@ cc.Class({
             if (cc.find('Canvas/car').children[0].opacity === 255 && this.guideParent.children[1].children[3].active === true) {
                 cc.find('Canvas/rookieGuide').active = false
 
-                // cc.eventManager.resumeTarget(canvasNode.children[4].children[3], true);
-                // cc.eventManager.resumeTarget(canvasNode, true);
+                cc.director.getCollisionManager().enabled = true
+                cc.find('Canvas/Button/buyBase').resumeSystemEvents(true)
                 cc.find('Canvas/Button/buyMore').resumeSystemEvents(true)
                 cc.find('Canvas/Button/acceleranceButton').resumeSystemEvents(true)
                 cc.find('Canvas/Button/playerAutoSortButton').resumeSystemEvents(true)

@@ -9,22 +9,22 @@ cc.Class({
 
     properties: {
 
-        //买车
-        buy: {
+
+        buy: {  //买车 基础车
             default: null,
             type: cc.Button,
         },
-        //滚动视图内的content
-        scrollViewBuyCar: {
+
+        scrollViewBuyCar: {   //滚动视图 买高级车
             default: null,
             type: cc.Node
         },
-        //总钱
-        coinTotal: {
+
+        coinTotal: {//总钱
             default: null,
             type: cc.Label,
         },
-        carDeblock: {
+        carDeblock: {//解锁车辆图片
             default: null,
             type: cc.Node
         },
@@ -40,6 +40,7 @@ cc.Class({
     onLoad() {
         this.buyCar();
         this.ViewEffect();
+
     },
 
     update(dt) {
@@ -63,18 +64,10 @@ cc.Class({
         for (let i = 0; i < chi.length; i++) {
             carArrSprite.push(chi[i])
         }
-<<<<<<< HEAD
-       
-        if (carArrSprite[2].active === true) {
-            this.carDeblock.children[1].active = true //三级车
-            this.carDeblock.active = true
-=======
-      
-        if (carArrSprite[2].active === true) {
-            // this.carDeblock.children[1].active = true //三级车
-            // this.carDeblock.active = true
->>>>>>> 59202e24d4de98a6b71b4c4c5a57a4ddcd38d413
-        }
+        // if (carArrSprite[2].active === true) {
+        //     this.carDeblock.children[1].active = true //三级车
+        //     this.carDeblock.active = true
+        // }
 
         if (carArrSprite[3].active === true) {
             this.scrollViewBuyCar.children[0].children[0].color = new cc.Color(255, 255, 255, 255);
@@ -99,8 +92,8 @@ cc.Class({
         if (carArrSprite[6].active === true) {
             this.scrollViewBuyCar.children[3].children[0].color = new cc.Color(255, 255, 255, 255);
             this.scrollViewBuyCar.children[3].children[1].opacity = 255
-        //     this.carDeblock.active = true
-        //     this.carDeblock.children[5].active = true
+            //     this.carDeblock.active = true
+            //     this.carDeblock.children[5].active = true
         }
         if (carArrSprite[7].active === true) {
             this.scrollViewBuyCar.children[4].children[0].color = new cc.Color(255, 255, 255, 255);
