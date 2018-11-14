@@ -9,11 +9,12 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 var window = require('Windows')
+
 cc.Class({
     extends: cc.Component,
 
     properties: {
-
+      
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -50,6 +51,7 @@ cc.Class({
 
         var anim = animNode.getComponent(cc.Animation)//获取instantiate节点的动画
         anim.playAdditive(); // 播放第一个动画
+        cc.find('Canvas/AudioManager/3carPlayAnime').getComponent(cc.AudioSource).play()
         other.getComponent(cc.Collider).enabled = false;//关闭碰撞
         other.node.opacity = 100//节点半透明
 
@@ -72,33 +74,43 @@ cc.Class({
     //每圈加钱
     carone() {
         window.coinTotalLabel += 10
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     cartwo() {
         window.coinTotalLabel += 20
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carthree() {
         window.coinTotalLabel += 40
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carfour() {
         window.coinTotalLabel += 80
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carfive() {
         window.coinTotalLabel += 150
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carsix() {
         window.coinTotalLabel += 300
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carseven() {
         window.coinTotalLabel += 500
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     careight() {
         window.coinTotalLabel += 800
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carnine() {
         window.coinTotalLabel += 1500
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
     carten() {
         window.coinTotalLabel += 2000
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
     },
 
     start() {

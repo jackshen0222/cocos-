@@ -12,6 +12,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        audioCarCompose:{
+            default:null,
+            type:cc.Node
+        }
 
     },
 
@@ -45,6 +49,7 @@ cc.Class({
                     if (selfSp.spriteFrame === carArr[i].getComponent(cc.Sprite).spriteFrame) {
                         if (carArr[i] === carArr[9]) { return; }//最高等级时不能合成
                         otherSp.spriteFrame = carArr[i + 1].getComponent(cc.Sprite).spriteFrame;
+                        this.audioCarCompose.getComponent(cc.AudioSource).play() 
                         carArr[i].active = true//当前等级图片显示,购买栏里黑色的图片
                         carArr[i + 1].active = true//下一等级图片显示
                     }

@@ -16,6 +16,10 @@ cc.Class({
             default: null,
             type: cc.Button
         },
+        audioSort:{
+            default:null,
+            type:cc.Node
+        }
 
     },
     onLoad() {
@@ -35,6 +39,7 @@ cc.Class({
             carSpriteArr.push(chi[i])
         }
 
+        var self=this;
         this.playerSortButton.node.on(cc.Node.EventType.TOUCH_END, function () {
 
             var existCar = []
@@ -47,6 +52,7 @@ cc.Class({
                 console.log('动画进行中，禁止变更位置')
                 return;
             }
+            self.audioSort.getComponent(cc.AudioSource).play();
             for (let i = 0; i < carArray.length; i++) {
                 if (carArray[i].active === true) { existCar.push(carArray[i]); }//获得存在的节点
                 carArray[i].active = false;
@@ -65,7 +71,6 @@ cc.Class({
 
             }
 
-            // console.log(sortExistCar)
 
         })
 

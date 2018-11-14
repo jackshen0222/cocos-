@@ -20,6 +20,10 @@ cc.Class({
         AnimationFile: {
             default: null,
             type: cc.Node
+        },
+        audioAccelerate:{
+            default:null,
+            type:cc.Node
         }
     },
 
@@ -39,6 +43,7 @@ cc.Class({
         this.AnimSpeedControl.node.on(cc.Node.EventType.TOUCH_END, () => {
             if (state) { return }
             state += 1 //更改加速状态
+            this.audioAccelerate.getComponent(cc.AudioSource).play();
             //实例化节点加速
             animeParentNode.forEach(function (v) {
                 var clipName = v.getComponent(cc.Animation)._clips[0].name

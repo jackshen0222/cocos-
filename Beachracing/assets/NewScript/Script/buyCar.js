@@ -29,10 +29,14 @@ cc.Class({
             type: cc.Node
         },
 
-
         lab1: {//基础车辆
             default: null,
             type: cc.Label,
+        },
+
+        audioBuyCar: {
+            default: null,
+            type: cc.Node,
         },
 
     },
@@ -140,7 +144,7 @@ cc.Class({
 
     buyCar: function () {
 
-        var carArray = []; //添加子节点到新数组
+        var carArray = []; //车辆
         var chi = cc.find('Canvas/car').children;
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
@@ -178,12 +182,14 @@ cc.Class({
                             carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                         })
                         carArray[i].active = true;
+                        this.audioBuyCar.getComponent(cc.AudioSource).play()
                         break;
                     }
                 }
             }
         })
-        //购买更多车辆内的第一辆车(二级车辆) this.scrollViewBuyCar.children[0] ，children[1]为button
+        //购买更多车辆内的第一辆车(二级车辆) 
+        //this.scrollViewBuyCar.children[0].children[1],children[1]为button
         this.scrollViewBuyCar.children[0].children[1].on(cc.Node.EventType.TOUCH_END, () => {
             var b1 = this.scrollViewBuyCar.children[0].children[1].children[0].getComponent(cc.Label).string
             var carPositionStillNull = this.JudgeCarPositionIfNull()
@@ -202,6 +208,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -224,6 +231,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -248,6 +256,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -271,6 +280,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -294,6 +304,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -317,6 +328,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -341,6 +353,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
@@ -365,6 +378,7 @@ cc.Class({
                                 carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
                             })
                             carArray[i].active = true;
+                            this.audioBuyCar.getComponent(cc.AudioSource).play()
                             break;
                         }
                     }
