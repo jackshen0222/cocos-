@@ -63,12 +63,9 @@ cc.Class({
         for (let i = 0; i < chi.length; i++) {
             carArrSprite.push(chi[i])
         }
-        if (carArrSprite[1].active === true) {
-            this.carDeblock.children[0].active = true //二级扯
-            this.carDeblock.active = true
-        }
+       
         if (carArrSprite[2].active === true) {
-            this.carDeblock.children[1].active = true //三级
+            this.carDeblock.children[1].active = true //三级车
             this.carDeblock.active = true
         }
 
@@ -123,6 +120,7 @@ cc.Class({
     },
 
 
+    //购买车辆，判断是否有空位，才可以继续购买车辆，否则return
     JudgeCarPositionIfNull() {
         var carArray = []; //添加子节点到新数组
         var chi = cc.find('Canvas/car').children;

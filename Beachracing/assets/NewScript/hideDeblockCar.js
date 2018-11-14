@@ -17,14 +17,22 @@ cc.Class({
             default: null,
             type: cc.Button
         },
-      
+
 
     },
     onLoad() {
 
+        var carSprite1 = []
+        var child = cc.find('Canvas/carSprite1').children
+        for (let i = 0; i < child.length; i++) {
+            carSprite1.push(child[i])
+        }
 
         this.a.node.on(cc.Node.EventType.TOUCH_END, () => {
-            
+            // windows.carDeblockWindow=true
+            // carSprite1.forEach(v=>{
+            //     v.active=false
+            // })
         })
 
     },
