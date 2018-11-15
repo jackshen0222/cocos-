@@ -16,10 +16,18 @@ cc.Class({
             default: null,
             type: cc.Button
         },
-        audioSort:{
-            default:null,
-            type:cc.Node
-        }
+        audioSort: {
+            default: null,
+            type: cc.Node
+        },
+        promptBt: {
+            default: null,
+            type: cc.Button
+        },
+        promptBox: {
+            default: null,
+            type: cc.Node
+        },
 
     },
     onLoad() {
@@ -39,9 +47,14 @@ cc.Class({
             carSpriteArr.push(chi[i])
         }
 
-        var self=this;
-        this.playerSortButton.node.on(cc.Node.EventType.TOUCH_END, function () {
 
+        var self = this;
+
+        //取消动画提示弹窗(车辆跑圈中，禁止变换位置)
+        this.promptBt.node.on(cc.Node.EventType.TOUCH_END, () => { this.promptBox.active = false; })
+
+        //实行位置排序，如果车辆正在进行，禁止排序
+        this.playerSortButton.node.on(cc.Node.EventType.TOUCH_START, function () {
             var existCar = []
             var continueJudge = false;
             carArray.forEach(function (v) {
@@ -50,8 +63,10 @@ cc.Class({
             })
             if (continueJudge) {
                 console.log('动画进行中，禁止变更位置')
+                self.promptBox.active = true;
                 return;
             }
+
             self.audioSort.getComponent(cc.AudioSource).play();
             for (let i = 0; i < carArray.length; i++) {
                 if (carArray[i].active === true) { existCar.push(carArray[i]); }//获得存在的节点
@@ -62,17 +77,15 @@ cc.Class({
                 var bName = Number(b.getComponent(cc.Sprite).spriteFrame.name)
                 return bName - aName
             })
-            for (let i = 0; i < existCar.length; i++) {//实行排序
+            for (let i = 0; i < existCar.length; i++) {//完成排序
                 carArray[i].active = true
                 var name = existCar[i].getComponent(cc.Sprite).spriteFrame.name
                 cc.loader.loadRes(name, cc.SpriteFrame, function (err, res) {
                     carArray[i].getComponent(cc.Sprite).spriteFrame = res
                 })
-
             }
-
-
         })
+
 
     },
 

@@ -12,9 +12,13 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        coinCount: {
+        // coinCount: {
+        //     default: null,
+        //     type: cc.Label
+        // },
+        audioRetrieve: {
             default: null,
-            type: cc.Label
+            type: cc.Node
         }
     },
 
@@ -44,14 +48,15 @@ cc.Class({
         //总金币加上回收值,最后将原先回收的图片等级设置为初始值，并且设置图片为隐藏;
         //策划说回收不给钱，下面的if我给注释掉了
         if (self.node.group === 'retrieveCar') {
-            for (let i = 0; i < carArrSprite.length; i++) {
-                // if (otherSp.spriteFrame === carArrSprite[i].getComponent(cc.Sprite).spriteFrame) {
-                    // window.coinTotalLabel += (retrieveCarCoinGrade[i] * 0.8) //** (window.coin[i] + 1)
-                    // this.coinCount.string = Math.round(window.coinTotalLabel)
-                // }
-                otherSp.node.active = false
-                otherSp.spriteFrame = carArrSprite[0].getComponent(cc.Sprite).spriteFrame
-            }
+            // for (let i = 0; i < carArrSprite.length; i++) {
+            // if (otherSp.spriteFrame === carArrSprite[i].getComponent(cc.Sprite).spriteFrame) {
+            // window.coinTotalLabel += (retrieveCarCoinGrade[i] * 0.8) //** (window.coin[i] + 1)
+            // this.coinCount.string = Math.round(window.coinTotalLabel)
+            // }
+            otherSp.node.active = false
+            otherSp.spriteFrame = carArrSprite[0].getComponent(cc.Sprite).spriteFrame
+            this.audioRetrieve.getComponent(cc.AudioSource).play()
+            // }
         }
 
     },

@@ -1,8 +1,6 @@
 
 
-// var carArrSpriteV;
 var buyNine = 0;
-
 var window = require('Windows')
 cc.Class({
     extends: cc.Component,
@@ -43,7 +41,7 @@ cc.Class({
 
     onLoad() {
         this.buyCar();
-        this.ViewEffect();
+        this.ViewEffect();//默认高级车辆图片为黑色
 
     },
 
@@ -55,7 +53,7 @@ cc.Class({
     ViewEffect: function () {
         for (let i = 0; i < this.scrollViewBuyCar.children.length; i++) {
             this.scrollViewBuyCar.children[i].children[0].color = new cc.Color(0, 0, 0, 255);
-            this.scrollViewBuyCar.children[i].children[1].opacity = 20
+            this.scrollViewBuyCar.children[i].children[1].opacity = 15
         }
     },
     //图片复原
@@ -126,7 +124,7 @@ cc.Class({
 
     //购买车辆，判断是否有空位，才可以继续购买车辆，否则return
     JudgeCarPositionIfNull() {
-        var carArray = []; //添加子节点到新数组
+        var carArray = []; //车辆
         var chi = cc.find('Canvas/car').children;
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
@@ -142,13 +140,28 @@ cc.Class({
         }
     },
 
-    buyCar: function () {
+    buyCarTest(CarGredeSprite) {
 
         var carArray = []; //车辆
         var chi = cc.find('Canvas/car').children;
         for (let i = 0; i < chi.length; i++) {
             carArray.push(chi[i])
         }
+        for (let i = 0; i < carArray.length; i++) {
+            if (carArray[i].active === false) {
+                cc.loader.loadRes(CarGredeSprite, cc.SpriteFrame, function (err, spriteFrame) {
+                    carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
+                })
+                carArray[i].active = true;
+                this.audioBuyCar.getComponent(cc.AudioSource).play()
+                break;
+            }
+        }
+    },
+
+
+    buyCar: function () {
+
         var carArrSprite = []//图片等级
         var chi = cc.find("Canvas/carSprite").children
         for (let i = 0; i < chi.length; i++) {
@@ -174,18 +187,11 @@ cc.Class({
             if (carPositionStillNull && window.coinTotalLabel >= b) {
                 coin1 += 1//购买次数
                 window.coinTotalLabel -= Math.round(100 + 100 * (1.1 * coin1));//购买后的溢价
-                this.lab1.string = Math.round(100 + 100 * (1.1 * (coin1 + 1)))
+                this.lab1.string = Math.round(100 + 100 * (1.1 * (coin1 + 1)))//购买车辆所需的金钱
 
-                for (let i = 0; i < carArray.length; i++) {
-                    if (carArray[i].active === false) {
-                        cc.loader.loadRes('1', cc.SpriteFrame, function (err, spriteFrame) {
-                            carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                        })
-                        carArray[i].active = true;
-                        this.audioBuyCar.getComponent(cc.AudioSource).play()
-                        break;
-                    }
-                }
+
+                var carGrede = '1'
+                this.buyCarTest(carGrede);
             }
         })
         //购买更多车辆内的第一辆车(二级车辆) 
@@ -202,16 +208,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(500 + 500 * (1.15 * coin2))//购买后的溢价
                     this.scrollViewBuyCar.children[0].children[1].children[0].getComponent(cc.Label).string = Math.round(500 + 500 * (1.5 * (coin2 + 1)))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('2', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '2'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -225,16 +223,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(1500 + 1500 * 1.2 * coin3);
                     this.scrollViewBuyCar.children[1].children[1].children[0].getComponent(cc.Label).string = Math.round(1500 + 1500 * 1.2 * (coin3 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('3', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '3'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -250,16 +240,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(3000 + 3000 * 1.25 * coin4);
                     this.scrollViewBuyCar.children[2].children[1].children[0].getComponent(cc.Label).string = Math.round(3000 + 3000 * 1.25 * (coin4 + 1));
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('4', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '4'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -274,16 +256,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(5000 + 5000 * 1.3 * coin5);
                     this.scrollViewBuyCar.children[3].children[1].children[0].getComponent(cc.Label).string = Math.round(5000 + 5000 * 1.3 * (coin5 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('5', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '5'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -298,16 +272,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(7500 + 7500 * 1.4 * coin6);
                     this.scrollViewBuyCar.children[4].children[1].children[0].getComponent(cc.Label).string = Math.round(7500 + 7500 * 1.4 * (coin6 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('6', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '6'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -322,16 +288,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(12500 + 12500 * 1.5 * coin7);
                     this.scrollViewBuyCar.children[5].children[1].children[0].getComponent(cc.Label).string = Math.round(12500 + 12500 * 1.5 * (coin7 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('7', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '7'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -347,16 +305,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(17000 + 17000 * 1.6 * coin8);
                     this.scrollViewBuyCar.children[6].children[1].children[0].getComponent(cc.Label).string = Math.round(17000 + 17000 * 1.6 * (coin8 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('8', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '8'
+                    this.buyCarTest(carGrede);
                 }
             }
         })
@@ -372,16 +322,8 @@ cc.Class({
                     window.coinTotalLabel -= Math.round(25000 + 25000 * 1.8 * coin9);
                     this.scrollViewBuyCar.children[7].children[1].children[0].getComponent(cc.Label).string = Math.round(25000 + 25000 * 1.8 * (coin9 + 1))
 
-                    for (let i = 0; i < carArray.length; i++) {
-                        if (carArray[i].active === false) {
-                            cc.loader.loadRes('9', cc.SpriteFrame, function (err, spriteFrame) {
-                                carArray[i].getComponent(cc.Sprite).spriteFrame = spriteFrame
-                            })
-                            carArray[i].active = true;
-                            this.audioBuyCar.getComponent(cc.AudioSource).play()
-                            break;
-                        }
-                    }
+                    var carGrede = '9'
+                    this.buyCarTest(carGrede);
                 }
             }
         })

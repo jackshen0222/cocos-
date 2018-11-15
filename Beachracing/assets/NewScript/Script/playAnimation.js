@@ -71,46 +71,51 @@ cc.Class({
 
 
     },
+
+    AudioPlay(){
+        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+    },
+
     //每圈加钱
     carone() {
         window.coinTotalLabel += 10
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+        this.AudioPlay();
     },
     cartwo() {
         window.coinTotalLabel += 20
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+        this.AudioPlay();
     },
     carthree() {
         window.coinTotalLabel += 40
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carfour() {
         window.coinTotalLabel += 80
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carfive() {
         window.coinTotalLabel += 150
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carsix() {
         window.coinTotalLabel += 300
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carseven() {
         window.coinTotalLabel += 500
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     careight() {
         window.coinTotalLabel += 800
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carnine() {
         window.coinTotalLabel += 1500
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
     carten() {
         window.coinTotalLabel += 2000
-        cc.find('Canvas/AudioManager/4carEarnGain').getComponent(cc.AudioSource).play()
+       this.AudioPlay();
     },
 
     start() {
