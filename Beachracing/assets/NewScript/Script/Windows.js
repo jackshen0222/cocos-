@@ -1,4 +1,4 @@
 module.exports = {
     coinTotalLabel: 10000000,
-    carDeblockWindow:false
+    carDeblockWindow:0
 }
