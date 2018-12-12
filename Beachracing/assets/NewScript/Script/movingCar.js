@@ -53,8 +53,8 @@ cc.Class({
                 cc.director.getCollisionManager().enabled = false;
                 // 获取当前光标与上一光标的偏移量
                 var delta = event.touch.getDelta();
-                this.x += delta.x;
-                this.y += delta.y;
+                carArray[i].x += delta.x;
+                carArray[i].y += delta.y;
             })
             carArray[i].on(cc.Node.EventType.TOUCH_END, function () {
                 state.pop();
